@@ -8,7 +8,7 @@ const LandingPage = () => {
 
   return (
     <Center 
-      height="88vh" 
+      minHeight="88vh" 
       bg="gray.50" 
       bgImage="url('/images/red-note.jpg')" 
       bgPos="center"
@@ -27,12 +27,13 @@ const LandingPage = () => {
       </Helmet>
       <Box bgColor="rgba(0, 0, 0, 0.7)" p={8} borderRadius="md">
         <VStack spacing={6}>
-          <Heading 
+        <Heading 
             fontSize={['2xl', '3xl', '4xl', '5xl']} 
             color="white"
-          >
+            textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
+        >
             Jacob Leone
-          </Heading>
+        </Heading>
           <VStack spacing={2}>
             <FaMusic size="1.5em" color="red.500" />
             <Text fontSize={['lg', 'xl', '2xl']} color="gray.300">Music Producer</Text>
