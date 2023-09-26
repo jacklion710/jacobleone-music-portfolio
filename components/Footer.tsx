@@ -5,17 +5,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Image
+  VisuallyHidden
 } from '@chakra-ui/react';
 import { FaInstagram, FaSoundcloud } from 'react-icons/fa'; 
 import { ReactNode } from 'react';
-
-const Logo = (props: any) => {
-  const colorMode = useColorModeValue('light', 'dark');
-  const logoSrc = colorMode === 'light' ? '/assets/jack.lion_dark.png' : '/assets/jack.lion_light.png';
-  return <Image src={logoSrc} alt="Jack's Logo" w={8} h={8} {...props} />;
-};
 
 const SocialButton = ({
   children,
@@ -28,7 +21,7 @@ const SocialButton = ({
 }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+      bg={useColorModeValue('blackAlpha.700', 'blackAlpha.700')}
       rounded={'full'}
       w={8}
       h={8}
@@ -51,8 +44,8 @@ const SocialButton = ({
 export default function Footer() {
   return (
     <Box 
-      bg={useColorModeValue('gray.300', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
+      bg={useColorModeValue('red.900', 'red.900')}
+      color={useColorModeValue('white', 'white.200')}
       width="100%"  
     >
       <Container
