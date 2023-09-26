@@ -26,25 +26,6 @@ const projects = [
     githubUrl: "https://github.com/jacklion710/jacklions-website",
     deployUrl: "https://jacklion.xyz"
   },
-  {
-    title: "M8 Data Cleaner",
-    description: "A script that optimizes sample libraries for use on the M8 tracker hardware",
-    imageUrl: "/images/m8.jpeg",
-    githubUrl: "https://github.com/jacklion710/m8_data_cleaner"
-  },
-  {
-      title: "Interactive Web Audio Visual Experience",
-      description: "An experiment on the intersection between technology and art.",
-      imageUrl: "/images/helix.png",
-      githubUrl: "https://github.com/jacklion710/jacklions-website/blob/main/pages/av/RNBO/simple-sampler-dna.tsx",
-      deployUrl: "https://jacklion.xyz/av/RNBO/simple-sampler-dna"
-    },
-    {
-      title: "CDJ Compatibility Cleaner",
-      description: "A script for assisting DJs in preparing samples for CDJ compatibility.",
-      imageUrl: "/images/cdj.jpeg",
-      githubUrl: "https://github.com/jacklion710/CDJ_Audio_Compatibility_Converter"
-    }
 ];
 
 export default function Projects() {
