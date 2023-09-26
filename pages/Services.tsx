@@ -11,33 +11,61 @@ import {
     Divider,
     useColorModeValue
 } from "@chakra-ui/react";
-import { FaMusic, FaHeadphones, FaGuitar, FaMicrophone } from "react-icons/fa";
+import { 
+    FaMusic, 
+    FaHeadphones, 
+    FaGuitar, 
+    FaChalkboardTeacher,
+    FaGamepad,
+    FaFilm,
+    FaPodcast
+} from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
 
 const services = [
     {
-        title: "Commercial Music",
-        icon: <FaMusic />,
-        description: "Original music compositions tailored for commercial purposes, ensuring the right vibe for your brand or project.",
+      title: "Music Licensing",
+      icon: <FaMusic />,
+      description: "Original music compositions tailored for commercial purposes, ensuring the right vibe for your brand or project.",
     },
     {
-        title: "Mixing & Mastering",
-        icon: <FaHeadphones />,
-        description: "Professional mixing and mastering services to ensure your tracks sound polished and ready for release.",
+      title: "Mixing & Mastering",
+      icon: <FaHeadphones />,
+      description: "Professional mixing and mastering services to ensure your tracks sound polished and ready for release.",
     },
     {
-        title: "Session Musician",
-        icon: <FaGuitar />,
-        description: "Expertise in various instruments, providing the perfect sound for your musical projects.",
+      title: "Session Musician",
+      icon: <FaGuitar />,
+      description: "Expertise in various instruments, providing the perfect sound for your musical projects or crafting unique soundscapes and audio effects that add depth and character to your productions",
     },
     {
-        title: "Sound Design",
-        icon: <FaMicrophone />,
-        description: "Crafting unique soundscapes and audio effects that add depth and character to your productions.",
+      title: "Film Scoring",
+      icon: <FaFilm />,
+      description: "Composing original music for movies, documentaries, short films, or animations.",
+    },
+    {
+      title: "Soundtrack Production for Games",
+      icon: <FaGamepad />,
+      description: "Designing atmospheric and theme-specific music for video games, mobile apps, or virtual reality experiences.",
+    },
+    {
+      title: "Podcast Intros/Outros",
+      icon: <FaPodcast />,
+      description: "Crafting unique opening and closing music for podcasts, background tracks and other sounds that complement spoken content, be it for commercials, e-learning modules, or audiobooks..",
+    },
+    {
+      title: "Music Editing and Arrangement",
+      icon: <FaMusic />,
+      description: "Adapting and rearranging existing tracks for specific needs, such as shortening a song for an ad spot or changing the arrangement for a performance.",
+    },
+    {
+      title: "Music Workshops and Consultation",
+      icon: <FaChalkboardTeacher />,
+      description: "Offering expertise on music-related topics, guiding brands on how to use music effectively, or even teaching specific music techniques.",
     }
-];
+  ];
   
   export default function Services() {
     const bgColor = useColorModeValue("white", "gray.900");
@@ -73,7 +101,7 @@ const services = [
                         as="h1" 
                         size="2xl" 
                         mb={10} 
-                        mt={10} 
+                        mt={2} 
                         textAlign="center"
                         position="relative"
                         color="gray.100"
@@ -93,7 +121,7 @@ const services = [
             
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                     {services.map((service, index) => (
-                        <Box key={index} w="300px" p={5} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }} bg="gray.800" opacity="0.9">
+                        <Box key={index} w="300px" p={5} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }} bg="gray.900" opacity="0.9">
                             <Flex justifyContent="center">
                                 <Box fontSize="3xl" mb={3}>
                                     {service.icon}
@@ -105,9 +133,9 @@ const services = [
                     ))}
                 </Flex>
 
-                    <Divider my={10} w="50%" borderColor="black" mx="auto" />
+                    <Divider my={10} w="50%" borderColor="white" mx="auto" />
 
-                    <VStack mt={60} spacing={4} alignItems="center">
+                    <VStack mt={10} mb={10} spacing={4} alignItems="center">
                         <Text fontSize="lg" textAlign="center" fontWeight="medium">
                             Have an idea for a project? Reach out anytime!
                         </Text>
