@@ -42,7 +42,7 @@ const socialLinks = [
     href: "mailto:jacob0leone@gmail.com",
     label: "Email",
     icon: <FaEnvelope />,
-    colorScheme: "teal"
+    colorScheme: "purple"
   }
 ];
 
@@ -89,6 +89,7 @@ export default function Contact() {
               size="2xl" 
               mb={4} 
               position="relative"
+              textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
               _after={{
                 content: '""',
                 display: 'block',
