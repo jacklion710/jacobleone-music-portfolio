@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jacob Leone's Portfolio
 
-## Getting Started
+This is a personal portfolio project built using [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The website showcases Jacob's professional achievements, skills, and projects.
 
-First, run the development server:
+## 🛠️ Technologies & Frameworks Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **[Next.js](https://nextjs.org/)**: A React framework offering features like server-side rendering and generating static websites.
+- **[Chakra UI](https://chakra-ui.com/)**: A modern, modular and accessible component library that offers a set of high-quality React components.
+- **[React Icons](https://react-icons.github.io/react-icons/)**: A library to utilize popular icons from different icon packs in your React application.
+- **[React Helmet](https://github.com/nfl/react-helmet)**: A component that simplifies the management and manipulation of document head tags.
+  
+(⚠️ This is a basic overview; depending on the full range of technologies used in your project, you might want to add more here.)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Setup**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/jacklion710/jacobleone-tech-portfolio.git
+   ```
+   Install the dependencies:
+   ```bash
+   npm install
+   ```
+2. **Running Locally**
 
-To learn more about Next.js, take a look at the following resources:
+    Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
+Navigate to http://localhost:3000 in your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🌐 Main Pages
 
-## Deploy on Vercel
+- **Landing Page**: An introduction to my skills with responsive design and interactive icons.
+- **Services Page**: Details the professional services offered by Jacob, from AI & Machine Learning to Mobile App Creation.
+- **Resume & References**: Provides an option to download Jacob's resume and professional references.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 Learn More
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To further explore Next.js, consider the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - Comprehensive guide on Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - An engaging, interactive Next.js tutorial.
