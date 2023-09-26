@@ -39,6 +39,7 @@ import {
             display={{ base: 'flex', md: 'none' }}>
             <IconButton
               onClick={onToggle}
+              color={"red.500"}
               icon={
                 isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
               }
@@ -66,7 +67,7 @@ import {
         <Stack
           direction={'row'}
           spacing={6}
-          justifyContent="space-between" // Add this line
+          justifyContent="space-between"
           alignItems="center"
           flexGrow={1}
           h="100%"
@@ -77,10 +78,12 @@ import {
                 py={2}
                 fontSize={{ base: "xl" }}
                 fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
-                _hover={{ textDecoration: 'underline', color: 'gray.300' }}
-              >
+                color="white"
+                textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+            >
                 {navItem.label}
-              </ChakraLink>
+            </ChakraLink>
             </NextLink>
           ))}
         </Stack>
@@ -93,23 +96,20 @@ import {
       <Stack
         bg={'black'}
         p={4}
-        spacing={6}  // <-- Introducing spacing between nav items
+        spacing={6}  
         display={{ md: 'none' }}>
         
         {NAV_ITEMS.map((navItem) => (
           <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
             <ChakraLink
-              py={2}
-              fontSize={{ base: "xl" }}  // <-- Making text larger for prominence
-              fontWeight={navItem.imageSrc ? 'normal' : 'bold'}  // <-- Make text items bold
-              color='white'
-              _hover={{ textDecoration: 'underline', color: 'gray.300' }}  // <-- Hover effect
+                py={2}
+                fontSize={{ base: "xl" }}  
+                fontWeight={navItem.imageSrc ? 'normal' : 'normal'}  
+                color='white'
+                textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
             >
-              {navItem.imageSrc ? (
-                <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="50px" h="50px" borderRadius="50%" />
-              ) : (
-                navItem.label
-              )}
+                {navItem.label}
             </ChakraLink>
           </NextLink>
         ))}
