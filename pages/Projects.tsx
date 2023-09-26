@@ -67,6 +67,7 @@ export default function Projects() {
                   mb={4} 
                   size="2xl"
                   position="relative"
+                  textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
                   _after={{
                       content: '""',
                       display: 'block',
