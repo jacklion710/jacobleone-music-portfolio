@@ -1,4 +1,3 @@
-'use client'
 import {
   Box,
   chakra,
@@ -8,14 +7,14 @@ import {
   useColorModeValue,
   VisuallyHidden,
   Image
-} from '@chakra-ui/react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { ReactNode } from 'react'
+} from '@chakra-ui/react';
+import { FaInstagram, FaSoundcloud } from 'react-icons/fa'; 
+import { ReactNode } from 'react';
 
 const Logo = (props: any) => {
-    const colorMode = useColorModeValue('light', 'dark');
-    const logoSrc = colorMode === 'light' ? '/assets/jack.lion_dark.png' : '/assets/jack.lion_light.png';
-    return <Image src={logoSrc} alt="Jack's Logo" w={8} h={8} {...props} />;
+  const colorMode = useColorModeValue('light', 'dark');
+  const logoSrc = colorMode === 'light' ? '/assets/jack.lion_dark.png' : '/assets/jack.lion_light.png';
+  return <Image src={logoSrc} alt="Jack's Logo" w={8} h={8} {...props} />;
 };
 
 const SocialButton = ({
@@ -47,32 +46,30 @@ const SocialButton = ({
       {children}
     </chakra.button>
   )
-}
+};
 
 export default function Footer() {
-    return (
-        <Box 
-          bg={useColorModeValue('gray.300', 'gray.900')}
-          color={useColorModeValue('gray.700', 'gray.200')}
-          width="100%"  
-        >
-          <Container
-            as={Stack}
-            maxW={'6xl'}
-            py={2}  // reduce padding for slimmer appearance
-            direction={{ base: 'column', md: 'row' }}
-            spacing={2}  // reduce spacing for slimmer appearance
-            justify={{ base: 'center', md: 'space-between' }}
-            align={{ base: 'center', md: 'center' }}>
-            {/* Add more buttons */}
-            <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved</Text> 
-            <Stack direction={'row'} spacing={4}>  
-          
-          <SocialButton label={'Github'} href={'https://github.com/jacklion710'}>
-            <FaGithub />
+  return (
+    <Box 
+      bg={useColorModeValue('gray.300', 'gray.900')}
+      color={useColorModeValue('gray.700', 'gray.200')}
+      width="100%"  
+    >
+      <Container
+        as={Stack}
+        maxW={'6xl'}
+        py={2}
+        direction={{ base: 'column', md: 'row' }}
+        spacing={2}
+        justify={{ base: 'center', md: 'space-between' }}
+        align={{ base: 'center', md: 'center' }}>
+        <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved.</Text> 
+        <Stack direction={'row'} spacing={4}>
+          <SocialButton label={'Instagram'} href={'#'}>  {/* Placeholder link */}
+            <FaInstagram />
           </SocialButton>
-          <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/in/jacob-leone/'}>
-            <FaLinkedin />
+          <SocialButton label={'SoundCloud'} href={'#'}>  {/* Placeholder link */}
+            <FaSoundcloud />
           </SocialButton>
         </Stack>
       </Container>
