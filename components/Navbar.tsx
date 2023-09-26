@@ -144,10 +144,6 @@ import {
     {
       label: 'Contact',
       href: '/Contact'
-    },
-    {
-      label: 'Résumé',
-      href: '/Resume'
     }
   ];
   
