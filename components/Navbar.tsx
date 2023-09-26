@@ -1,8 +1,6 @@
 import {
     Box,
     Flex,
-    Text,
-    Icon,
     IconButton,
     Stack,
     Image,
@@ -13,9 +11,7 @@ import {
   import React from 'react';
   import {
     HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-    ChevronRightIcon
+    CloseIcon
   } from '@chakra-ui/icons';
   import dynamic from "next/dynamic";
   import NextLink from "next/link";
@@ -35,7 +31,8 @@ import {
           borderStyle={'solid'}
           borderColor={'gray.900'}
           align={'center'}
-          justify={'space-between'}>
+          justify={'space-between'}  
+        >
           <Flex
             flex={{ base: 1, md: 'auto' }}
             ml={{ base: -2 }}
@@ -49,6 +46,7 @@ import {
               aria-label={'Toggle Navigation'}
             />
           </Flex>
+          
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -65,23 +63,23 @@ import {
   const DesktopNav = () => {
     return (
       <Flex justifyContent="space-between" alignItems="center" flexGrow={1} h="100%">
-        <Stack 
-          direction={'row'} 
+        <Stack
+          direction={'row'}
           spacing={6}
+          justifyContent="space-between" // Add this line
+          alignItems="center"
+          flexGrow={1}
+          h="100%"
         >
           {NAV_ITEMS.map((navItem) => (
-            <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
+            <NextLink key={navItem.label} href={navItem.href ?? '#'} passHref>
               <ChakraLink
                 py={2}
                 fontSize={{ base: "xl" }}
                 fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
-                _hover={{ textDecoration: 'underline', color: 'gray.300' }} 
+                _hover={{ textDecoration: 'underline', color: 'gray.300' }}
               >
-                {navItem.imageSrc ? (
-                  <Image src={navItem.imageSrc} objectFit="cover" objectPosition="center top" w="50px" h="50px" borderRadius="50%" /> 
-                ) : (
-                  navItem.label
-                )}
+                {navItem.label}
               </ChakraLink>
             </NextLink>
           ))}
@@ -89,7 +87,7 @@ import {
       </Flex>
     );
   };
-  
+
   const MobileNav = () => {
     return (
       <Stack
@@ -130,7 +128,7 @@ import {
   
   const NAV_ITEMS: Array<NavItem> = [
     {
-      imageSrc: '/images/headshot.jpg',  // <-- Add this
+      label: 'Home',
       href: '/'
     },
     {
