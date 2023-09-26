@@ -8,41 +8,46 @@ import {
     Link,
     Container,
     ChakraProvider,
-    Divider
-  } from "@chakra-ui/react";
-  import { FaLaptopCode, FaMobileAlt, FaBrain, FaCode } from "react-icons/fa";
-  import Navbar from "../components/Navbar";
-  import Footer from '../components/Footer';
-  import { Helmet } from "react-helmet";
+    Divider,
+    useColorModeValue
+} from "@chakra-ui/react";
+import { FaMusic, FaHeadphones, FaGuitar, FaMicrophone } from "react-icons/fa";
+import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
+import { Helmet } from "react-helmet";
 
-  const services = [
+const services = [
     {
-      title: "AI & Machine Learning",
-      icon: <FaBrain />,
-      description: "Custom AI models and machine learning solutions tailored to your business needs.",
+        title: "Commercial Music",
+        icon: <FaMusic />,
+        description: "Original music compositions tailored for commercial purposes, ensuring the right vibe for your brand or project.",
     },
     {
-      title: "Software Development",
-      icon: <FaCode />,
-      description: "Full-stack software development services from concept to deployment.",
+        title: "Mixing & Mastering",
+        icon: <FaHeadphones />,
+        description: "Professional mixing and mastering services to ensure your tracks sound polished and ready for release.",
     },
     {
-      title: "Web Development",
-      icon: <FaLaptopCode />,
-      description: "Responsive, user-friendly websites built with the latest technologies.",
+        title: "Session Musician",
+        icon: <FaGuitar />,
+        description: "Expertise in various instruments, providing the perfect sound for your musical projects.",
     },
     {
-      title: "Mobile App Creation",
-      icon: <FaMobileAlt />,
-      description: "Native and hybrid mobile applications for both Android and iOS platforms.",
+        title: "Sound Design",
+        icon: <FaMicrophone />,
+        description: "Crafting unique soundscapes and audio effects that add depth and character to your productions.",
     }
-  ];
+];
   
   export default function Services() {
+    const bgColor = useColorModeValue("white", "gray.900");
+    const color = useColorModeValue("white", "gray.100"); 
+    const borderColor = useColorModeValue("gray.200", "gray.700"); 
+    
     return (
         <ChakraProvider>
             <Helmet>
-                <title>Jacob Leone's Services | Professional Tech Solutions</title>
+                <title>Jacob Leones Services | Professional Tech Solutions</title>
                 <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
                 <meta name="keywords" content="Jacob Leone, AI, Machine Learning, Software Development, Web Development, Mobile App Creation, Tech Services" />
                 <meta property="og:type" content="website" />
@@ -54,10 +59,12 @@ import {
             <Flex 
                 direction="column" 
                 minHeight="100vh"
-                bgImage="url('/images/Circuit.jpeg')"
+                color={color}
+                bgImage="url('/images/red-note.jpg')"
                 bgPos="center"
                 bgSize="cover"
                 bgRepeat="no-repeat"
+                bgAttachment="fixed"
             >
                 <Navbar />
                 
@@ -69,6 +76,7 @@ import {
                         mt={10} 
                         textAlign="center"
                         position="relative"
+                        color="gray.100"
                         _after={{
                             content: '""',
                             display: 'block',
@@ -84,37 +92,35 @@ import {
                     </Heading>
             
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
-                        {services.map((service, index) => (
-                            <Box key={index} borderWidth="5px" borderRadius="lg" overflow="hidden" w="xs" p={5} m={1} bg="gray.100" borderColor="black">
-                                <Flex justifyContent="center">
-                                    <Box fontSize="3xl" mb={3}>
-                                        {service.icon}
-                                    </Box>
-                                </Flex>
-                                <Heading as="h2" size="lg" mb={1} textAlign="center">
-                                    {service.title}
-                                </Heading>
-                                <Text mb={4} textAlign="center">{service.description}</Text>
-                            </Box>
-                        ))}
-                    </Flex>
+                    {services.map((service, index) => (
+                        <Box key={index} w="300px" p={5} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }} bg="gray.800" opacity="0.9">
+                            <Flex justifyContent="center">
+                                <Box fontSize="3xl" mb={3}>
+                                    {service.icon}
+                                </Box>
+                            </Flex>
+                            <Heading as="h2" size="lg" mb={1} textAlign="center">{service.title}</Heading>
+                            <Text mb={4} textAlign="center">{service.description}</Text>
+                        </Box>
+                    ))}
+                </Flex>
 
                     <Divider my={10} w="50%" borderColor="black" mx="auto" />
 
-                    <VStack mt={10} spacing={4} alignItems="center">
+                    <VStack mt={60} spacing={4} alignItems="center">
                         <Text fontSize="lg" textAlign="center" fontWeight="medium">
                             Have an idea for a project? Reach out anytime!
                         </Text>
                         <Flex>
-                            <Button colorScheme="blue" size="med" as={Link} href="/Contact" mr={4} padding={2}>
+                            <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2}>
                                 Contact
                             </Button>
-                            <Button colorScheme="green" size="med" as={Link} href="/Projects" padding={2}>
+                            <Button colorScheme="red" size="med" as={Link} href="/Projects" padding={2}>
                                 Projects
                             </Button>
                         </Flex>
                         <Text fontSize="med">
-                            Email me at <Link href="mailto:jacob0leone@gmail.com" color="blue.500" fontWeight="bold">jacob0leone@gmail.com</Link>
+                            Email me at <Link href="mailto:jacob0leone@gmail.com" color="red.300" fontWeight="bold">jacob0leone@gmail.com</Link>
                         </Text>
                     </VStack>
                 </Container>
