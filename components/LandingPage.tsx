@@ -61,12 +61,12 @@ const LandingPage = () => {
           {/* Conditional rendering for the waveform and its play/pause button */}
           {reelDisclosure.isOpen && (
             <Flex flexDirection="column" alignItems="center" mt={4}>
-                <Heading size="sm">Listen to My Reel</Heading>
+                <Heading size="sm" mb={5}>Listen to My Reel</Heading>
                 <Waveform src="/audio/reel.wav" isVisible={reelDisclosure.isOpen} />
                 {/* If you want a Play/Pause button outside of the Waveform component, you'll need to pass a function to the Waveform component to control playback */}
             </Flex>
         )}
-          <Box textAlign="center" w="100%" my={4}>
+          <Box textAlign="center" w="100%" my={10}>
             <Text fontSize="lg" color="gray.300" mb={1} maxW="700px" textAlign="center" mx="auto">
               At the intersection of technology and artistry, I leverage my expertise to provide creative solutions to brands in the musical sphere.
             </Text>
