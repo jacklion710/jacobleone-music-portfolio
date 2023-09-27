@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
+import { Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
 import { FaMusic, FaHeadphones } from 'react-icons/fa'; 
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
