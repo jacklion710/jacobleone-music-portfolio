@@ -49,7 +49,7 @@ const LandingPage = () => {
           {/* Conditional rendering for Listen to My Reel button */}
           {!reelDisclosure.isOpen && (
             <Button 
-                colorScheme="red" 
+                colorScheme="gray" 
                 size="lg" 
                 variant="outline" 
                 onClick={reelDisclosure.onToggle}
@@ -63,7 +63,6 @@ const LandingPage = () => {
             <Flex flexDirection="column" alignItems="center" mt={4}>
                 <Heading size="sm" mb={5}>Listen to My Reel</Heading>
                 <Waveform src="/audio/reel.wav" isVisible={reelDisclosure.isOpen} />
-                {/* If you want a Play/Pause button outside of the Waveform component, you'll need to pass a function to the Waveform component to control playback */}
             </Flex>
         )}
           <Box textAlign="center" w="100%" my={10}>
