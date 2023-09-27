@@ -49,7 +49,7 @@ const LandingPage = () => {
           {/* Conditional rendering for Listen to My Reel button */}
           {!reelDisclosure.isOpen && (
             <Button 
-                colorScheme="gray" 
+                colorScheme="red" 
                 size="lg" 
                 variant="outline" 
                 onClick={reelDisclosure.onToggle}
