@@ -130,10 +130,10 @@ import {
       label: 'Home',
       href: '/'
     },
-    {
-      label: 'Projects',
-      href: '/Projects'
-    },
+    // {
+    //   label: 'Projects',
+    //   href: '/Projects'
+    // },
     {
       label: 'Services',
       href: '/Services'
