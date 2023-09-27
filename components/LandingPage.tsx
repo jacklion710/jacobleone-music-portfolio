@@ -59,7 +59,7 @@ const LandingPage = () => {
             </Button>
             <Collapse in={isOpen}>
               <Text fontSize="lg" color="gray.300" mt={4} maxW="700px" textAlign="center" mx="auto">
-                Through a combination of innovative sound design and adaptive production techniques, I partner with brands to curate unique audio experiences tailored to their needs. Understanding the vision of any brand and translating it into memorable music compositions is my forte. Whether it's creating sonic identities for new products, enhancing media campaigns, or simply producing tracks that resonate with target audiences, I am dedicated to delivering exceptional value and results.
+                Through a combination of innovative sound design and adaptive production techniques, I partner with brands to curate unique audio experiences tailored to their needs. Understanding the vision of any brand and translating it into memorable music compositions is my forte. Whether it is creating sonic identities for new products, enhancing media campaigns, or simply producing tracks that resonate with target audiences, I am dedicated to delivering exceptional value and results.
               </Text>
             </Collapse>
           </Box>
