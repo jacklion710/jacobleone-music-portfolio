@@ -48,10 +48,8 @@ import {
             />
           </Flex>
           
-          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
-            </Flex>
+          <Flex display={{ base: 'none', md: 'flex' }}>
+            <DesktopNav />
           </Flex>
         </Flex>
         <Collapse in={isOpen} animateOpacity>
@@ -96,20 +94,21 @@ import {
       <Stack
         bg={'black'}
         p={4}
-        spacing={6}  
-        display={{ md: 'none' }}>
-        
+        spacing={6}
+        display={{ base: 'flex', md: 'none' }}
+        flexDirection="column"
+      >
         {NAV_ITEMS.map((navItem) => (
           <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
             <ChakraLink
-                py={2}
-                fontSize={{ base: "xl" }}  
-                fontWeight={navItem.imageSrc ? 'normal' : 'normal'}  
-                color='white'
-                textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
-                _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+              py={2}
+              fontSize={{ base: "xl" }}
+              fontWeight={navItem.imageSrc ? 'normal' : 'normal'}
+              color='white'
+              textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+              _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
             >
-                {navItem.label}
+              {navItem.label}
             </ChakraLink>
           </NextLink>
         ))}
