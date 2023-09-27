@@ -24,8 +24,9 @@ const Waveform = ({ src, isVisible }: { src: string; isVisible: boolean }) => {
         if (waveformRef.current) {
             wavesurfer.current = WaveSurfer.create({
                 container: waveformRef.current,
-                waveColor: 'violet',
-                progressColor: 'purple'
+                waveColor: 'red',
+                progressColor: 'darkred',
+                cursorColor: 'white'
             });
 
             wavesurfer.current.load(src);
@@ -65,17 +66,24 @@ const Waveform = ({ src, isVisible }: { src: string; isVisible: boolean }) => {
                     style={{ 
                         marginTop: '50px', 
                         padding: '10px 20px',
-                        backgroundColor: 'red',
+                        background: 'linear-gradient(45deg, red, black)',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
+                        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
                         cursor: 'pointer',
-                        transition: 'background-color 0.3s',
+                        transition: 'all 0.3s',
                         fontSize: '16px',
                         fontWeight: '600'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.backgroundColor = 'purple'}
-                    onMouseLeave={e => e.currentTarget.style.backgroundColor = 'violet'}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.background = 'linear-gradient(45deg, darkred, black)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.background = 'linear-gradient(45deg, red, black)';
+                        e.currentTarget.style.transform = 'translateY(0px)';
+                    }}
                 >
                     {isPlaying ? 'Pause' : 'Play'}
                 </button>
