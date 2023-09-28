@@ -58,6 +58,7 @@ export default function Contact() {
         <meta name="keywords" content="Jacob Leone, Connect, Code, Services, Linkedin, Github, Contact" />
         <meta property="og:url" content="https://jacobleone-tech.vercel.app/Contact" /> 
         <link rel="canonical" href="https://jacobleone-tech.vercel.app/Contact" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
         </Helmet>
         <Flex 
           direction="column"
@@ -86,6 +87,8 @@ export default function Contact() {
             position="relative"
           >
             <Heading 
+              fontFamily="'Space Mono', monospace"
+              fontWeight="700"
               size="2xl" 
               mb={4} 
               position="relative"
@@ -103,7 +106,7 @@ export default function Contact() {
             >
               Connect with Me
             </Heading>
-            <Text mb={6}>
+            <Text mb={6} fontFamily="'Space Mono', monospace">
               Want to ask a question or book me for a services? Reach out to me directly on any platform or send me an <Link href="mailto:jacob0leone@gmail.com" color="red.400">email</Link>
             </Text>
               </Box>

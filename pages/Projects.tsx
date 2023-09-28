@@ -41,6 +41,7 @@ export default function Projects() {
         <meta name="keywords" content="Jacob Leone, Projects, Full Stack, M8 Data Cleaner, Web Audio, CDJ Compatibility, Portfolio" />
         <meta property="og:url" content="https://jacobleone-tech.vercel.app/Projects" /> 
         <link rel="canonical" href="https://jacobleone-tech.vercel.app/Projects" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
       </Helmet>
       <Flex 
           direction="column" 
@@ -64,6 +65,8 @@ export default function Projects() {
               px={4}
           >
               <Heading 
+                  fontFamily="'Space Mono', monospace"
+                  fontWeight="700"
                   mb={4} 
                   size="2xl"
                   position="relative"
@@ -90,8 +93,8 @@ export default function Projects() {
                       <AspectRatio ratio={4 / 3}>
                       <Image src={project.imageUrl} alt={project.title} borderRadius="md" mb={4} objectFit="cover" />
                       </AspectRatio>
-                      <Heading size="md" my={2} textAlign="center">{project.title}</Heading>
-                      <Text mb={4} noOfLines={2}>{project.description}</Text>
+                      <Heading size="md" my={2} textAlign="center" fontFamily="'Space Mono', monospace" fontWeight="700">{project.title}</Heading>
+                      <Text mb={4} noOfLines={2} fontFamily="'Space Mono', monospace">{project.description}</Text>
                       <Flex justifyContent="center" mt={3} wrap="wrap">
                         <Tooltip label="Visit GitHub Repository" aria-label="GitHub link">
                             <Button as={Link} href={project.githubUrl} leftIcon={<FaGithub />} isExternal colorScheme="blue" mr={2}>

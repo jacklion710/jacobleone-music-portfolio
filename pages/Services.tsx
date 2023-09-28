@@ -83,6 +83,7 @@ const services = [
                 <meta property="og:description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
                 <meta property="og:url" content="https://jacobleone-tech.vercel.app/Services" />
                 <link rel="canonical" href="https://jacobleone-tech.vercel.app/Services" />
+                <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
             </Helmet>
             <Flex 
                 direction="column" 
@@ -98,6 +99,8 @@ const services = [
                 
                 <Container maxW="container.xl" flexGrow={1}>
                     <Heading 
+                        fontFamily="'Space Mono', monospace"
+                        fontWeight="700"
                         as="h1" 
                         size="2xl" 
                         mb={10} 
@@ -128,8 +131,8 @@ const services = [
                                     {service.icon}
                                 </Box>
                             </Flex>
-                            <Heading as="h2" size="lg" mb={1} textAlign="center">{service.title}</Heading>
-                            <Text mb={4} textAlign="center">{service.description}</Text>
+                            <Heading as="h2" size="lg" mb={1} textAlign="center" fontFamily="'Space Mono', monospace" fontWeight="700">{service.title}</Heading>
+                            <Text mb={4} textAlign="center" fontFamily="'Space Mono', monospace">{service.description}</Text>
                         </Box>
                     ))}
                 </Flex>
@@ -137,18 +140,18 @@ const services = [
                     <Divider my={10} w="50%" borderColor="white" mx="auto" />
 
                     <VStack mt={10} mb={10} spacing={4} alignItems="center">
-                        <Text fontSize="lg" textAlign="center" fontWeight="medium">
+                        <Text fontSize="lg" textAlign="center" fontWeight="medium" fontFamily="'Space Mono', monospace" >
                             Have an idea for a project? Reach out anytime!
                         </Text>
                         <Flex>
-                            <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2}>
+                            <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2} fontFamily="'Space Mono', monospace" >
                                 Contact
                             </Button>
-                            <Button colorScheme="red" size="med" as={Link} href="/Projects" padding={2}>
+                            <Button colorScheme="red" size="med" as={Link} href="/Projects" padding={2} fontFamily="'Space Mono', monospace" >
                                 Projects
                             </Button>
                         </Flex>
-                        <Text fontSize="med">
+                        <Text fontSize="med" fontFamily="'Space Mono', monospace" >
                             Email me at <Link href="mailto:jacob0leone@gmail.com" color="red.300" fontWeight="bold">jacob0leone@gmail.com</Link>
                         </Text>
                     </VStack>
