@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 
-  export default function HomePage() {
+  export default function Catalog() {
     const soundCloudLinks = [
       "https%3A//api.soundcloud.com/tracks/1485160441",
       "https%3A//api.soundcloud.com/tracks/946294501",
@@ -34,7 +34,7 @@ import { Helmet } from 'react-helmet';
         
         <Flex 
             direction="column" 
-            alignItems="center" 
+            alignItems="flex-start" 
             flexGrow={1} 
             minHeight="100vh"          
             justifyContent="space-between" 
