@@ -134,10 +134,10 @@ import {
     //   label: 'Projects',
     //   href: '/Projects'
     // },
-    // {
-    //   label: 'Catalog?',
-    //   href: '/Catalog'
-    // },
+    {
+      label: 'Catalog',
+      href: '/Catalog'
+    },
     {
       label: 'Services',
       href: '/Services'
