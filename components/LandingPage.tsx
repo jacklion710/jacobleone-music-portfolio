@@ -34,10 +34,10 @@ const LandingPage = () => {
       <Box bgColor="rgba(0, 0, 0, 0.7)" p={8} borderRadius="md">
         <VStack spacing={6}>
         <Heading 
-            fontSize={['2xl', '3xl', '4xl', '5xl']} 
+            fontSize={['5xl', '5xl', '5xl', '7xl']} 
             color="white"
             fontFamily="'Space Mono', monospace"
-            fontWeight="700"
+            fontWeight="800"
             textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
         >
             Jacob Leone
