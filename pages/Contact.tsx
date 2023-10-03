@@ -20,24 +20,24 @@ import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 
 const socialLinks = [
-  {
-    href: "https://open.spotify.com/artist/35foCh1HOk7XwvVzuiFmzc",
-    label: "Spotify",
-    icon: <FaSpotify />,
-    colorScheme: "green"
-  },
-  {
-    href: "https://soundcloud.com/jacob-leone",
-    label: "SoundCloud",
-    icon: <FaSoundcloud />,
-    colorScheme: "orange"
-  },
-  {
-    href: "https://www.youtube.com/channel/UCbTxhDz-oFPdbKl5-rpi4gQ",
-    label: "Youtube",
-    icon: <FaYoutube />,
-    colorScheme: "red"
-  },
+  // {
+  //   href: "https://open.spotify.com/artist/35foCh1HOk7XwvVzuiFmzc",
+  //   label: "Spotify",
+  //   icon: <FaSpotify />,
+  //   colorScheme: "green"
+  // },
+  // {
+  //   href: "https://soundcloud.com/jacob-leone",
+  //   label: "SoundCloud",
+  //   icon: <FaSoundcloud />,
+  //   colorScheme: "orange"
+  // },
+  // {
+  //   href: "https://www.youtube.com/channel/UCbTxhDz-oFPdbKl5-rpi4gQ",
+  //   label: "Youtube",
+  //   icon: <FaYoutube />,
+  //   colorScheme: "red"
+  // },
   {
     href: "mailto:jacob0leone@gmail.com",
     label: "Email",
@@ -107,7 +107,7 @@ export default function Contact() {
               Connect with Me
             </Heading>
             <Text mb={6} fontFamily="'Space Mono', monospace">
-              Want to ask a question or book me for a services? Reach out to me directly on any platform or send me an <Link href="mailto:jacob0leone@gmail.com" color="red.400">email</Link>
+              Want to work with me or ask a question about my services? Send me an <Link href="mailto:jacob0leone@gmail.com" color="cyan.400">email</Link>
             </Text>
               </Box>
               <HStack spacing={4} justify="center" wrap="wrap" mb={4}>
