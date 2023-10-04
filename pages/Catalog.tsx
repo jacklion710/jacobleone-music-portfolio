@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet';
 
   export default function Catalog() {
     const soundCloudLinks = [
+      "https%3A//api.soundcloud.com/tracks/1631947197%3Fsecret_token%3Ds-thwfEijiW5a",
       "https%3A//api.soundcloud.com/tracks/1120675069%3Fsecret_token%3Ds-XJH20hBd0O4",
       "https%3A//api.soundcloud.com/tracks/1120678582%3Fsecret_token%3Ds-75AMNfN1yPy",
       "https%3A//api.soundcloud.com/tracks/1121106415%3Fsecret_token%3Ds-CnettY4srxN",
