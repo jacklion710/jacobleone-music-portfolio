@@ -40,7 +40,7 @@ const LandingPage = () => {
             fontWeight="800"
             textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
         > 
-            Jacob Leone
+            Crafted by Jacob
         </Heading>
           <VStack spacing={2}>
             <FaMusic size="1.5em" color="white" />
@@ -65,7 +65,7 @@ const LandingPage = () => {
           {/* Conditional rendering for the waveform and its play/pause button */}
           {reelDisclosure.isOpen && (
             <Flex flexDirection="column" alignItems="center" mt={4}>
-                <Heading size="sm" mb={5} fontFamily="'Space Mono', monospace">Listen to My Reel</Heading>
+                <Heading color="white"size="sm" mb={5} fontFamily="'Space Mono', monospace" >Listen to My Reel</Heading>
                 <Waveform src="/audio/reel.wav" isVisible={reelDisclosure.isOpen} />
             </Flex>
         )}
