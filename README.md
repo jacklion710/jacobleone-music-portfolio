@@ -1,5 +1,7 @@
 # Jacob Leone's Portfolio
 
+[Live web deployment](https://jacobleone.com/)
+
 This is a personal portfolio project built using [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The website showcases Jacob's professional achievements, skills, and projects.
 
 ## 🛠️ Technologies & Frameworks Used
@@ -9,8 +11,6 @@ This is a personal portfolio project built using [Next.js](https://nextjs.org/) 
 - **[React Icons](https://react-icons.github.io/react-icons/)**: A library to utilize popular icons from different icon packs in your React application.
 - **[React Helmet](https://github.com/nfl/react-helmet)**: A component that simplifies the management and manipulation of document head tags.
   
-(⚠️ This is a basic overview; depending on the full range of technologies used in your project, you might want to add more here.)
-
 ## 🚀 Getting Started
 
 1. **Setup**
