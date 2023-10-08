@@ -39,6 +39,7 @@ const LandingPage = () => {
             fontFamily="'Space Mono', monospace"
             fontWeight="800"
             textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
+            textAlign={"center"}
         > 
             Crafted by Jacob
         </Heading>
