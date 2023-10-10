@@ -39,7 +39,7 @@ const socialLinks = [
   //   colorScheme: "red"
   // },
   {
-    href: "mailto:jacob0leone@gmail.com",
+    href: "mailto:jacob@jacobleone.com",
     label: "Email",
     icon: <FaEnvelope />,
     colorScheme: "purple"
@@ -107,7 +107,7 @@ export default function Contact() {
               Connect with Me
             </Heading>
             <Text mb={6} fontFamily="'Space Mono', monospace">
-              Want to work with me or ask a question about my services? Send me an <Link href="mailto:jacob0leone@gmail.com" color="cyan.400">email</Link>
+              Want to work with me or ask a question about my services? Send me an <Link href="mailto:jacob@jacobleone.com" color="cyan.400">email</Link>
             </Text>
               </Box>
               <HStack spacing={4} justify="center" wrap="wrap" mb={4}>

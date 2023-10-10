@@ -152,7 +152,7 @@ const services = [
                             </Button>
                         </Flex>
                         <Text fontSize="med" fontFamily="'Space Mono', monospace" >
-                            Email me at <Link href="mailto:jacob0leone@gmail.com" color="red.300" fontWeight="bold">jacob0leone@gmail.com</Link>
+                            Email me at <Link href="mailto:jacob@jacobleone.com" color="red.300" fontWeight="bold">jacob@jacobleone.com</Link>
                         </Text>
                     </VStack>
                 </Container>
