@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
-import { FaInstagram, FaSoundcloud } from 'react-icons/fa'; 
+import { FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa'; // Step 1: Import FaEnvelope
 import { ReactNode } from 'react';
 
 const SocialButton = ({
@@ -58,11 +58,14 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}>
         <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved.</Text> 
         <Stack direction={'row'} spacing={4}>
-          <SocialButton label={'Instagram'} href={'#'}>  {/* Placeholder link */}
+          <SocialButton label={'Instagram'} href={'#'}>
             <FaInstagram />
           </SocialButton>
-          <SocialButton label={'SoundCloud'} href={'#'}>  {/* Placeholder link */}
+          <SocialButton label={'SoundCloud'} href={'#'}>
             <FaSoundcloud />
+          </SocialButton>
+          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> {/* Step 2: Add email icon and mailto link */}
+            <FaEnvelope />
           </SocialButton>
         </Stack>
       </Container>
