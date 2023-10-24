@@ -147,7 +147,7 @@ const services = [
                             <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2} fontFamily="'Space Mono', monospace" >
                                 Contact
                             </Button>
-                            <Button colorScheme="red" size="med" as={Link} href="/Projects" padding={2} fontFamily="'Space Mono', monospace" >
+                            <Button colorScheme="red" size="med" as={Link} href="https://jacklion.xyz/Portfolio" padding={2} fontFamily="'Space Mono', monospace" >
                                 Projects
                             </Button>
                         </Flex>
