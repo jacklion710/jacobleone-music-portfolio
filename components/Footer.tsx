@@ -64,7 +64,7 @@ export default function Footer() {
           <SocialButton label={'SoundCloud'} href={'#'}>
             <FaSoundcloud />
           </SocialButton>
-          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> {/* Step 2: Add email icon and mailto link */}
+          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> 
             <FaEnvelope />
           </SocialButton>
         </Stack>
