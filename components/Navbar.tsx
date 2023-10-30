@@ -32,18 +32,20 @@ import {
           borderStyle={'solid'}
           borderColor={'gray.900'}
           align={'center'}
+          justifyContent="space-between"
         >
           {/* Left Flex: Hamburger/Close Icons + Desktop Navigation */}
           <Flex 
-            flex={1} 
+            flex={1}
             display="flex"
-            justifyContent={{ base: "flex-start", md: "space-between" }} 
+            justifyContent={{ base: "flex-start", md: "flex-start" }}
             alignItems="center"
           >
+            {/* Hamburger Icon */}
             <Flex
-              flex={{ base: 1, md: 'auto' }}
               ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}>
+              display={{ base: 'flex', md: 'none' }}
+            >
               <IconButton
                 onClick={onToggle}
                 color={"red.500"}
@@ -54,34 +56,40 @@ import {
                 aria-label={'Toggle Navigation'}
               />
             </Flex>
-      
+    
             {/* Desktop Navigation */}
-            <Flex display={{ base: 'none', md: 'flex' }} flex={1}>
+            <Flex display={{ base: 'none', md: 'flex' }}>
               <DesktopNav />
             </Flex>
           </Flex>
       
           {/* Logo */}
-          <Flex justifyContent="center" flex={1}>
+          <Flex justifyContent="center" flexShrink={0}>
             <Image src={logo} alt="Logo" height={140} width={140} />
           </Flex>
-      
-          {/* Right Flex: Contact button */}
-          <Flex flex={1} display="flex" justifyContent="flex-end" alignItems="center">
+    
+          {/* Right Flex: Contact button (only on desktop) */}
+          <Flex 
+            flex={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
+          >
             <NextLink href="/Contact" passHref>
-              <ChakraLink
-                mx={3}
-                px={6}
-                py={5}
-                bg="red.500"
-                color="white"
-                fontSize="md"
-                fontWeight="bold"
-                borderRadius="md"
-                _hover={{ bg: 'red.600' }}
-              >
-                Contact
-              </ChakraLink>
+                <ChakraLink
+                    mx={3}
+                    px={6}
+                    py={5}
+                    bg="red.500"
+                    color="white"
+                    fontSize="md"
+                    fontWeight="bold"
+                    borderRadius="md"
+                    _hover={{ bg: 'red.600' }}
+                    display={{ base: 'none', md: 'block' }}
+                >
+                    Contact
+                </ChakraLink>
             </NextLink>
           </Flex>
         </Flex>
@@ -130,6 +138,8 @@ import {
         spacing={6}
         display={{ base: 'flex', md: 'none' }}
         flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
       >
         {NAV_ITEMS.map((navItem) => (
           <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
@@ -140,14 +150,32 @@ import {
               color='white'
               textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
               _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+              textAlign="center"  // Added this
             >
               {navItem.label}
             </ChakraLink>
           </NextLink>
         ))}
+        {/* Contact Button */}
+        <NextLink href="/Contact" passHref>
+            <ChakraLink
+                mx={3}
+                px={6}
+                py={5}
+                bg="red.500"
+                color="white"
+                fontSize="md"
+                fontWeight="bold"
+                borderRadius="md"
+                _hover={{ bg: 'red.600' }}
+                textAlign="center"  // Added this
+            >
+                Contact
+            </ChakraLink>
+        </NextLink>
       </Stack>
     );
-  };
+};
   
   export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
   
