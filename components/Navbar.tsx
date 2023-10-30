@@ -3,7 +3,6 @@ import {
     Flex,
     IconButton,
     Stack,
-    Image,
     Collapse,
     Link as ChakraLink,
     useDisclosure
@@ -15,7 +14,9 @@ import {
   } from '@chakra-ui/icons';
   import dynamic from "next/dynamic";
   import NextLink from "next/link";
-  
+  import logo from '../public/images/Jacob_Leone_Transparent_Logo_White.png';
+  import Image from 'next/image';
+
   function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
   
@@ -25,33 +26,65 @@ import {
           bg={'black'}
           color={'white'}
           h="80px"
-          minH={'60px'}
-          py={{ base: 2 }}
+          minH={'120px'}
+          py={{ base: 4 }}
           px={{ base: 4 }}
           borderStyle={'solid'}
           borderColor={'gray.900'}
           align={'center'}
-          justify={'space-between'}  
         >
-          <Flex
-            flex={{ base: 1, md: 'auto' }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', md: 'none' }}>
-            <IconButton
-              onClick={onToggle}
-              color={"red.500"}
-              icon={
-                isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
-              }
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
-            />
+          {/* Left Flex: Hamburger/Close Icons + Desktop Navigation */}
+          <Flex 
+            flex={1} 
+            display="flex"
+            justifyContent={{ base: "flex-start", md: "space-between" }} 
+            alignItems="center"
+          >
+            <Flex
+              flex={{ base: 1, md: 'auto' }}
+              ml={{ base: -2 }}
+              display={{ base: 'flex', md: 'none' }}>
+              <IconButton
+                onClick={onToggle}
+                color={"red.500"}
+                icon={
+                  isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
+                }
+                variant={'ghost'}
+                aria-label={'Toggle Navigation'}
+              />
+            </Flex>
+      
+            {/* Desktop Navigation */}
+            <Flex display={{ base: 'none', md: 'flex' }} flex={1}>
+              <DesktopNav />
+            </Flex>
           </Flex>
-          
-          <Flex display={{ base: 'none', md: 'flex' }}>
-            <DesktopNav />
+      
+          {/* Logo */}
+          <Flex justifyContent="center" flex={1}>
+            <Image src={logo} alt="Logo" height={140} width={140} />
+          </Flex>
+      
+          {/* Right Flex: Contact button */}
+          <Flex flex={1} display="flex" justifyContent="flex-end" alignItems="center">
+            <NextLink href="/Contact" passHref>
+              <ChakraLink
+                px={4}
+                py={5}
+                bg="red.500"
+                color="white"
+                fontSize="md"
+                fontWeight="bold"
+                borderRadius="md"
+                _hover={{ bg: 'red.600' }}
+              >
+                Contact
+              </ChakraLink>
+            </NextLink>
           </Flex>
         </Flex>
+      
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
@@ -65,7 +98,6 @@ import {
         <Stack
           direction={'row'}
           spacing={6}
-          justifyContent="space-between"
           alignItems="center"
           flexGrow={1}
           h="100%"
@@ -77,7 +109,7 @@ import {
                 fontSize={{ base: "xl" }}
                 fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
                 color="white"
-                textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                textShadow="0 0 1px red, 0 0 3px red, 0 0 9px red"
                 _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
             >
                 {navItem.label}
