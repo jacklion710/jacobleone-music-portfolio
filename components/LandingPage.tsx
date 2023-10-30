@@ -41,7 +41,7 @@ const LandingPage = () => {
             textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
             textAlign={"center"}
         > 
-            Crafted by Jacob
+            Music by Jacob
         </Heading>
           <VStack spacing={2}>
             <FaMusic size="1.5em" color="white" />
@@ -72,7 +72,7 @@ const LandingPage = () => {
         )}
           <Box textAlign="center" w="100%" my={10}>
             <Text fontSize="lg" color="gray.300" mb={1} maxW="700px" textAlign="center" mx="auto" fontFamily="'Space Mono', monospace">
-              At the intersection of technology and artistry, I leverage my expertise to provide creative solutions to brands in the musical sphere.
+              At the intersection of technology and artistry, I leverage my expertise to provide creative solutions to brands in the musical sphere...
             </Text>
             <Button variant="link" color="red.500" onClick={readMoreDisclosure.onToggle} mt={2}>
               {readMoreDisclosure.isOpen ? "Read Less" : "Read More"} {readMoreDisclosure.isOpen ? <FaAngleUp /> : <FaAngleDown />}
