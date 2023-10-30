@@ -70,7 +70,8 @@ import {
           <Flex flex={1} display="flex" justifyContent="flex-end" alignItems="center">
             <NextLink href="/Contact" passHref>
               <ChakraLink
-                px={4}
+                mx={3}
+                px={6}
                 py={5}
                 bg="red.500"
                 color="white"
