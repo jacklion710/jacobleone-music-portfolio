@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
-import { FaMusic, FaHeadphones, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
+import { FaMusic, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
 import Waveform from './Waveform';
 
@@ -38,19 +38,16 @@ const LandingPage = () => {
             color="white"
             fontFamily="'Space Mono', monospace"
             fontWeight="800"
-            textShadow="0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red"
+            textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
             textAlign={"center"}
         > 
-            Music by Jacob
+            JACOBS MUSIC
         </Heading>
           <VStack spacing={2}>
             <FaMusic size="1.5em" color="white" />
-            <Text fontSize={['lg', 'xl', '2xl']} color="gray.300">Music Producer</Text>
+            <Text fontSize={['lg', 'xl', '2xl']} color="gray.300">Producer & Electronic Artist</Text>
           </VStack>
-          <VStack spacing={2}>
-            <FaHeadphones size="1.5em" color="white" />
-            <Text fontSize={['lg', 'xl', '2xl']} color="gray.300" fontFamily="'Space Mono', monospace" >Electronic Artist</Text>
-          </VStack>
+
           {/* Conditional rendering for Listen to My Reel button */}
           {!reelDisclosure.isOpen && (
             <Button 
