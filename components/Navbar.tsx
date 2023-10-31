@@ -1,25 +1,39 @@
 import {
     Box,
     Flex,
-    IconButton,
     Stack,
     Collapse,
     Link as ChakraLink,
     useDisclosure
   } from '@chakra-ui/react';
-  import React from 'react';
-  import {
-    HamburgerIcon,
-    CloseIcon
-  } from '@chakra-ui/icons';
-  import dynamic from "next/dynamic";
-  import NextLink from "next/link";
-  import logo from '../public/images/Jacob_Leone_Transparent_Logo_White.png';
-  import Image from 'next/image';
+import React from 'react';
+import dynamic from "next/dynamic";
+import NextLink from "next/link";
+import logo from '../public/images/Jacob_Leone_Transparent_Logo_White.png';
+import Image from 'next/image';
+import './navbarStyles.css';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const navItemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 }
+};
 
   function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
+   
+    React.useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';  // Disable scrolling
+      } else {
+        document.body.style.overflow = 'visible';  // Enable scrolling
+      }
   
+      return () => {
+        document.body.style.overflow = 'visible';  // Cleanup
+      };
+    }, [isOpen]);
+
     return (
       <Box>
         <Flex
@@ -46,15 +60,16 @@ import {
               ml={{ base: -2 }}
               display={{ base: 'flex', md: 'none' }}
             >
-              <IconButton
+              <div
+                id="nav-icon1"
                 onClick={onToggle}
-                color={"red.500"}
-                icon={
-                  isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={12} h={12} />
-                }
-                variant={'ghost'}
-                aria-label={'Toggle Navigation'}
-              />
+                className={isOpen ? "open" : ""}
+                style={{ marginTop: '30px' }}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </Flex>
     
             {/* Desktop Navigation */}
@@ -64,7 +79,7 @@ import {
           </Flex>
       
           {/* Logo */}
-          <Flex justifyContent="center" flexShrink={0}>
+          <Flex  justifyContent="center" flexShrink={0} zIndex={15} position="relative">
             <Image src={logo} alt="Logo" height={140} width={140} />
           </Flex>
     
@@ -93,9 +108,22 @@ import {
             </NextLink>
           </Flex>
         </Flex>
+
+        <Box 
+            position="fixed" 
+            top={0} 
+            right={0} 
+            bottom={0} 
+            left={0} 
+            bg="black" 
+            opacity={isOpen ? 0.9 : 0}  // Adjust this for desired darkness level
+            transition="opacity 0.5s ease" 
+            zIndex={9}  // This ensures it's above page content but below MobileNav
+            pointerEvents={isOpen ? 'auto' : 'none'}  // Makes it non-interactive when not visible
+        />
       
         <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
+            <MobileNav onToggle={onToggle} isOpen={isOpen} />
         </Collapse>
       </Box>
     );
@@ -130,58 +158,129 @@ import {
     );
   };
 
-  const MobileNav = () => {
+  interface MobileNavProps {
+    onToggle: () => void;
+    isOpen: boolean;
+  }
+  
+
+  const swoopAnimation = `
+    animation: swoopIn 1s cubic-bezier(0.5, 0, 0.25, 1);
+    @keyframes swoopIn {
+      from {
+        opacity: 0;
+        transform: translateY(10%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `;
+
+  const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
+    const [navItemStyles, setNavItemStyles] = React.useState({
+      opacity: 0,
+      transform: 'translateY(10px)',
+    });
+  
+    React.useEffect(() => {
+      if (isOpen) {
+        // If the menu should be open, animate the nav items into view
+        setNavItemStyles({
+          opacity: 1,
+          transform: 'translateY(0)',
+        });
+      } else {
+        // If the menu should be closed, animate the nav items out of view
+        setNavItemStyles({
+          opacity: 0,
+          transform: 'translateY(10px)',
+        });
+      }
+    }, [isOpen]);
+
     return (
-      <Stack
+      <Flex
+        position="fixed"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
         bg={'black'}
-        p={4}
-        spacing={6}
-        display={{ base: 'flex', md: 'none' }}
         flexDirection="column"
-        justifyContent="center"
+        justifyContent="flex-start"
         alignItems="center"
+        pt={12}
+        zIndex={10}
+        opacity={isOpen ? 1 : 0}
+        transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)" // Smooth fade-in
       >
-        {NAV_ITEMS.map((navItem) => (
-          <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
-            <ChakraLink
-              py={2}
-              fontSize={{ base: "xl" }}
-              fontWeight={navItem.imageSrc ? 'normal' : 'normal'}
-              color='white'
-              textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
-              _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
-              textAlign="center"  // Added this
-            >
-              {navItem.label}
-            </ChakraLink>
-          </NextLink>
-        ))}
+
+        {/* Close Button */}
+        <div
+          id="nav-icon1"
+          onClick={onToggle}
+          className={isOpen ? "open" : ""}
+          style={{ marginTop: '30px' }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10} flexGrow={1}> 
+          <Stack spacing={12} textAlign="center">
+            {NAV_ITEMS.map((navItem) => (
+              <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
+                <motion.div 
+                  initial="hidden"
+                  animate={isOpen ? "visible" : "hidden"}
+                  variants={navItemVariants}
+                >
+                  <ChakraLink
+                    fontSize={{ base: "3xl" }}
+                    fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
+                    color='white'
+                    textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                    _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+                  >
+                    {navItem.label}
+                  </ChakraLink>
+                </motion.div>
+              </NextLink>
+            ))}
+          </Stack>
+        </Flex>
+  
         {/* Contact Button */}
         <NextLink href="/Contact" passHref>
-            <ChakraLink
-                mx={3}
-                px={6}
-                py={5}
-                bg="red.500"
-                color="white"
-                fontSize="md"
-                fontWeight="bold"
-                borderRadius="md"
-                _hover={{ bg: 'red.600' }}
-                textAlign="center"  // Added this
-            >
-                Contact
-            </ChakraLink>
+          <ChakraLink
+              position="absolute"  // Absolute positioning
+              bottom={6}           // Set the bottom value
+              left="50%"           // Center the button
+              transform="translateX(-50%)"  // Adjust for perfect centering
+              px={6}
+              py={5}
+              bg="red.500"
+              color="white"
+              fontSize="2xl"
+              fontWeight="bold"
+              borderRadius="md"
+              _hover={{ bg: 'red.600' }}
+          >
+              Contact
+          </ChakraLink>
         </NextLink>
-      </Stack>
+      </Flex>
     );
 };
-  
+
   export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
   
   interface NavItem {
     label?: string;
-    imageSrc?: string; // <-- Add this
+    imageSrc?: string; 
     children?: Array<NavItem>;
     href?: string;
   }
@@ -191,10 +290,6 @@ import {
       label: 'Home',
       href: '/'
     },
-    // {
-    //   label: 'Projects',
-    //   href: '/Projects'
-    // },
     {
       label: 'Catalog',
       href: '/Catalog'
@@ -202,9 +297,5 @@ import {
     {
       label: 'Services',
       href: '/Services'
-    },
-    {
-      label: 'Contact',
-      href: '/Contact'
     }
   ];
