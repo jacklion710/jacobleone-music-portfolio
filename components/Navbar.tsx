@@ -102,8 +102,8 @@ const contactButtonVariants = {
               initial="hidden"
               animate={isOpen ? "visible" : "hidden"}
               variants={contactButtonVariants}
-              transition={{ duration: 0.5 }}
-            >
+              transition={{ duration: 0.2 }}
+              >
               <NextLink href="/Contact" passHref>
                   <ChakraLink
                       mx={3}
@@ -236,8 +236,8 @@ const contactButtonVariants = {
                           initial="hidden"
                           animate={isOpen ? "visible" : "hidden"}
                           variants={navItemVariants}
-                          transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}  // Adjust the delay here
-                      >
+                          transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                          >
                           <ChakraLink
                               fontSize={{ base: "3xl" }}
                               fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
@@ -258,7 +258,7 @@ const contactButtonVariants = {
           initial="hidden"
           animate={isOpen ? "visible" : "hidden"}
           variants={contactButtonVariants}
-          transition={{ duration: 0.5, delay: .8 }}
+          transition={{ duration: 0.4, delay: .4 }}
           >
           <NextLink href="/Contact" passHref>
             <ChakraLink
