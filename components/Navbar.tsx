@@ -1,4 +1,5 @@
 import {
+    chakra,
     Box,
     Flex,
     Stack,
@@ -12,11 +13,13 @@ import NextLink from "next/link";
 import logo from '../public/images/Jacob_Leone_Transparent_Logo_White.png';
 import Image from 'next/image';
 import './navbarStyles.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+const MotionBox = chakra(motion.div);
 
 const navItemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, y: 50 },  
+  visible: { opacity: 1, y: 0 }  
 };
 
   function Navbar() {
@@ -109,20 +112,20 @@ const navItemVariants = {
           </Flex>
         </Flex>
 
-        <Box 
+        <MotionBox
+            initial={false}
+            animate={{ opacity: isOpen ? 0.9 : 0 }}
             position="fixed" 
             top={0} 
             right={0} 
             bottom={0} 
             left={0} 
             bg="black" 
-            opacity={isOpen ? 0.9 : 0}  // Adjust this for desired darkness level
-            transition="opacity 0.5s ease" 
-            zIndex={9}  // This ensures it's above page content but below MobileNav
-            pointerEvents={isOpen ? 'auto' : 'none'}  // Makes it non-interactive when not visible
+            zIndex={9} 
+            pointerEvents={isOpen ? 'auto' : 'none'}
         />
       
-        <Collapse in={isOpen} animateOpacity>
+        <Collapse in={isOpen}>
             <MobileNav onToggle={onToggle} isOpen={isOpen} />
         </Collapse>
       </Box>
@@ -162,21 +165,6 @@ const navItemVariants = {
     onToggle: () => void;
     isOpen: boolean;
   }
-  
-
-  const swoopAnimation = `
-    animation: swoopIn 1s cubic-bezier(0.5, 0, 0.25, 1);
-    @keyframes swoopIn {
-      from {
-        opacity: 0;
-        transform: translateY(10%);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  `;
 
   const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
     const [navItemStyles, setNavItemStyles] = React.useState({
@@ -212,10 +200,10 @@ const navItemVariants = {
         justifyContent="flex-start"
         alignItems="center"
         pt={12}
-        zIndex={10}
-        opacity={isOpen ? 1 : 0}
-        transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)" // Smooth fade-in
-      >
+        zIndex={11}
+        // opacity={isOpen ? 1 : 0}
+        transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)"
+        >
 
         {/* Close Button */}
         <div
@@ -231,27 +219,28 @@ const navItemVariants = {
 
         <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10} flexGrow={1}> 
           <Stack spacing={12} textAlign="center">
-            {NAV_ITEMS.map((navItem) => (
-              <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
-                <motion.div 
-                  initial="hidden"
-                  animate={isOpen ? "visible" : "hidden"}
-                  variants={navItemVariants}
-                >
-                  <ChakraLink
-                    fontSize={{ base: "3xl" }}
-                    fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
-                    color='white'
-                    textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
-                    _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
-                  >
-                    {navItem.label}
-                  </ChakraLink>
-                </motion.div>
-              </NextLink>
-            ))}
+             {NAV_ITEMS.map((navItem, index) => (
+                  <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
+                      <motion.div 
+                          initial="hidden"
+                          animate={isOpen ? "visible" : "hidden"}
+                          variants={navItemVariants}
+                          transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}  // Adjust the delay here
+                      >
+                          <ChakraLink
+                              fontSize={{ base: "3xl" }}
+                              fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
+                              color='white'
+                              textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                              _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+                          >
+                              {navItem.label}
+                          </ChakraLink>
+                      </motion.div>
+                  </NextLink>
+              ))}
           </Stack>
-        </Flex>
+      </Flex>
   
         {/* Contact Button */}
         <NextLink href="/Contact" passHref>
