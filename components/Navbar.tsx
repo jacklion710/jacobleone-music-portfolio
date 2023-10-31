@@ -22,6 +22,11 @@ const navItemVariants = {
   visible: { opacity: 1, y: 0 }  
 };
 
+const contactButtonVariants = {
+  hidden: { y: 100, opacity: 0 },
+  visible: { y: 0, opacity: 1 }
+};
+
   function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
    
@@ -93,22 +98,29 @@ const navItemVariants = {
             justifyContent="flex-end"
             alignItems="center"
           >
-            <NextLink href="/Contact" passHref>
-                <ChakraLink
-                    mx={3}
-                    px={6}
-                    py={5}
-                    bg="red.500"
-                    color="white"
-                    fontSize="md"
-                    fontWeight="bold"
-                    borderRadius="md"
-                    _hover={{ bg: 'red.600' }}
-                    display={{ base: 'none', md: 'block' }}
-                >
-                    Contact
-                </ChakraLink>
-            </NextLink>
+            <motion.div 
+              initial="hidden"
+              animate={isOpen ? "visible" : "hidden"}
+              variants={contactButtonVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <NextLink href="/Contact" passHref>
+                  <ChakraLink
+                      mx={3}
+                      px={6}
+                      py={5}
+                      bg="red.500"
+                      color="white"
+                      fontSize="md"
+                      fontWeight="bold"
+                      borderRadius="md"
+                      _hover={{ bg: 'red.600' }}
+                      display={{ base: 'none', md: 'block' }}
+                  >
+                      Contact
+                  </ChakraLink>
+              </NextLink>
+            </motion.div>
           </Flex>
         </Flex>
 
@@ -201,7 +213,6 @@ const navItemVariants = {
         alignItems="center"
         pt={12}
         zIndex={11}
-        // opacity={isOpen ? 1 : 0}
         transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)"
         >
 
@@ -243,24 +254,31 @@ const navItemVariants = {
       </Flex>
   
         {/* Contact Button */}
-        <NextLink href="/Contact" passHref>
-          <ChakraLink
-              position="absolute"  // Absolute positioning
-              bottom={6}           // Set the bottom value
-              left="50%"           // Center the button
-              transform="translateX(-50%)"  // Adjust for perfect centering
-              px={6}
-              py={5}
-              bg="red.500"
-              color="white"
-              fontSize="2xl"
-              fontWeight="bold"
-              borderRadius="md"
-              _hover={{ bg: 'red.600' }}
+        <motion.div 
+          initial="hidden"
+          animate={isOpen ? "visible" : "hidden"}
+          variants={contactButtonVariants}
+          transition={{ duration: 0.5, delay: .8 }}
           >
-              Contact
-          </ChakraLink>
-        </NextLink>
+          <NextLink href="/Contact" passHref>
+            <ChakraLink
+                position="absolute"  // Absolute positioning
+                bottom={6}           // Set the bottom value
+                left="50%"           // Center the button
+                transform="translateX(-50%)"  // Adjust for perfect centering
+                px={6}
+                py={5}
+                bg="red.500"
+                color="white"
+                fontSize="2xl"
+                fontWeight="bold"
+                borderRadius="md"
+                _hover={{ bg: 'red.600' }}
+            >
+                Contact
+            </ChakraLink>
+          </NextLink>
+        </motion.div>
       </Flex>
     );
 };
