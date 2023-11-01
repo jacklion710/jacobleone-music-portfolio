@@ -58,15 +58,15 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}>
         <Text fontSize="sm">© 2023 Jacob Leone. All rights reserved.</Text> 
         <Stack direction={'row'} spacing={4}>
-          <SocialButton label={'Instagram'} href={'#'}>
-            <FaInstagram />
-          </SocialButton>
-          <SocialButton label={'SoundCloud'} href={'#'}>
-            <FaSoundcloud />
-          </SocialButton>
-          <SocialButton label={'Email'} href={'mailto:your-email@example.com'}> 
-            <FaEnvelope />
-          </SocialButton>
+            <SocialButton label={'Instagram'} href={'https://www.instagram.com/jack.lion/reels/?hl=en'}>
+                <FaInstagram />
+            </SocialButton>
+            <SocialButton label={'SoundCloud'} href={'https://soundcloud.com/jack0lion'}>
+                <FaSoundcloud />
+            </SocialButton>
+            <SocialButton label={'Email'} href={'mailto:jacob0leone@gmail.com'}> 
+                <FaEnvelope />
+            </SocialButton>
         </Stack>
       </Container>
     </Box>
