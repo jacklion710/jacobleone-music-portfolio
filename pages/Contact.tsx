@@ -9,35 +9,12 @@ import {
   ChakraProvider,
   useColorModeValue
 } from "@chakra-ui/react";
-import {
-  FaEnvelope,
-  FaSpotify,
-  FaYoutube,
-  FaSoundcloud
-} from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 
 const socialLinks = [
-  // {
-  //   href: "https://open.spotify.com/artist/35foCh1HOk7XwvVzuiFmzc",
-  //   label: "Spotify",
-  //   icon: <FaSpotify />,
-  //   colorScheme: "green"
-  // },
-  // {
-  //   href: "https://soundcloud.com/jacob-leone",
-  //   label: "SoundCloud",
-  //   icon: <FaSoundcloud />,
-  //   colorScheme: "orange"
-  // },
-  // {
-  //   href: "https://www.youtube.com/channel/UCbTxhDz-oFPdbKl5-rpi4gQ",
-  //   label: "Youtube",
-  //   icon: <FaYoutube />,
-  //   colorScheme: "red"
-  // },
   {
     href: "mailto:jacob@jacobleone.com",
     label: "Email",
