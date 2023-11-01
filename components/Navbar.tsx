@@ -105,10 +105,12 @@ const contactButtonVariants = {
             display="flex"
             justifyContent="flex-end"
             alignItems="center"
+            mt={80}
           >
             <motion.div 
               variants={contactButtonVariants}
               transition={{ duration: 0.2 }}
+              style={{ marginTop: '150px' }}
             >
               <NextLink href="/Contact" passHref>
                 <ChakraLink
@@ -152,13 +154,14 @@ const contactButtonVariants = {
   
   const DesktopNav = () => {
     return (
-      <Flex justifyContent="space-between" alignItems="center" flexGrow={1} h="100%">
+    <Flex justifyContent="space-between" alignItems="flex-start" flexGrow={1} h="100%">
         <Stack
           direction={'row'}
           spacing={6}
           alignItems="center"
           flexGrow={1}
           h="100%"
+          mt={4}
         >
           {NAV_ITEMS.map((navItem) => (
             <NextLink key={navItem.label} href={navItem.href ?? '#'} passHref>
@@ -169,6 +172,8 @@ const contactButtonVariants = {
                 color="white"
                 textShadow="0 0 1px red, 0 0 3px red, 0 0 9px red"
                 _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+                style={{ marginTop: '150px' }}
+                mt={8}
             >
                 {navItem.label}
             </ChakraLink>
@@ -217,7 +222,7 @@ const contactButtonVariants = {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
-        pt={12}
+        pt={4}
         zIndex={11}
         transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)"
         >
@@ -235,7 +240,7 @@ const contactButtonVariants = {
         </div>
 
         <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10} flexGrow={1}> 
-          <Stack spacing={12} textAlign="center">
+          <Stack spacing={12} textAlign="center" mt={-50}>
              {NAV_ITEMS.map((navItem, index) => (
                   <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
                       <motion.div 
@@ -280,6 +285,7 @@ const contactButtonVariants = {
                 fontWeight="bold"
                 borderRadius="md"
                 _hover={{ bg: 'red.600' }}
+                style={{ marginTop: '150px' }}
             >
                 Contact
             </ChakraLink>
