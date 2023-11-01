@@ -115,15 +115,15 @@ const contactButtonVariants = {
               marginRight={4}
             >
               <ChakraLink href="https://soundcloud.com/jack0lion" isExternal>
-                <Icon as={FaSoundcloud} color="red" style={{ marginRight: '10px' }}  w="1.5em" h="1.5em" className="icon-spacing" />
+                <Icon as={FaSoundcloud} color="red.500" style={{ marginRight: '10px' }}  w="1.5em" h="1.5em" className="icon-spacing" />
               </ChakraLink>
 
               <ChakraLink href="https://www.instagram.com/jack.lion/reels/?hl=en" isExternal>
-                <Icon as={FaInstagram} style={{ marginRight: '10px' }} color="red" w="1.5em" h="1.5em" className="icon-spacing" />
+                <Icon as={FaInstagram} style={{ marginRight: '10px' }} color="red.500" w="1.5em" h="1.5em" className="icon-spacing" />
               </ChakraLink>
 
               <ChakraLink href="mailto:jacob0leone@gmail.com">
-                <Icon as={FaEnvelope} color="red" w="1.5em" h="1.5em" className="icon-spacing" />
+                <Icon as={FaEnvelope} color="red.500" w="1.5em" h="1.5em" className="icon-spacing" />
               </ChakraLink>
             </Flex>
             <motion.div 
@@ -301,17 +301,17 @@ const contactButtonVariants = {
             >          
               <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
                   <a href="https://soundcloud.com/jack0lion" target="_blank" rel="noopener noreferrer">
-                      <FaSoundcloud color="red" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
+                      <FaSoundcloud color="#E53E3E" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
                   </a>
               </motion.div>
               <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
                   <a href="https://www.instagram.com/jack.lion/reels/?hl=en" target="_blank" rel="noopener noreferrer">
-                      <FaInstagram color="red" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
+                      <FaInstagram color="#E53E3E" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
                   </a>
               </motion.div>
               <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
                   <a href="mailto:jacob0leone@gmail.com" target="_blank" rel="noopener noreferrer">
-                      <FaEnvelope color="red" size="1.5em" className="icon-spacing"/>
+                      <FaEnvelope color="#E53E3E" size="1.5em" className="icon-spacing"/>
                   </a>
               </motion.div>
             </Flex>
