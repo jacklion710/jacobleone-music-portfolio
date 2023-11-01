@@ -43,12 +43,12 @@ const LandingPage = () => {
          <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
       </Helmet>
       <Box bgColor="rgba(0, 0, 0, 0.7)" p={4} borderRadius="md">
-        <VStack spacing={2}>
+        <VStack spacing={6}>
         <Image 
             src="/vector/JL_Music_Typography_Vectorized.svg"
             alt="Jacobs Music"
             filter="drop-shadow(0 0 5px red) drop-shadow(0 0 6px red)"
-            boxSize={['225px', '350px', '500px', '450px']}
+            boxSize={['225px', '350px', '425px', '450px']}
             mx="auto"
             color="white"
         />
