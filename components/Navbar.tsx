@@ -99,26 +99,24 @@ const contactButtonVariants = {
             alignItems="center"
           >
             <motion.div 
-              initial="hidden"
-              animate={isOpen ? "visible" : "hidden"}
               variants={contactButtonVariants}
               transition={{ duration: 0.2 }}
-              >
+            >
               <NextLink href="/Contact" passHref>
-                  <ChakraLink
-                      mx={3}
-                      px={6}
-                      py={5}
-                      bg="red.500"
-                      color="white"
-                      fontSize="md"
-                      fontWeight="bold"
-                      borderRadius="md"
-                      _hover={{ bg: 'red.600' }}
-                      display={{ base: 'none', md: 'block' }}
-                  >
-                      Contact
-                  </ChakraLink>
+                <ChakraLink
+                  mx={3}
+                  px={6}
+                  py={5}
+                  bg="red.500"
+                  color="white"
+                  fontSize="md"
+                  fontWeight="bold"
+                  borderRadius="md"
+                  _hover={{ bg: 'red.600' }}
+                  display={{ base: 'none', md: 'block' }}  // Ensures it's visible on desktop and hidden on mobile
+                >
+                  Contact
+                </ChakraLink>
               </NextLink>
             </motion.div>
           </Flex>
