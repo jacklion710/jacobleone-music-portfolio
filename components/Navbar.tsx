@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
-import logo from '../public/images/Jacob_Leone_Transparent_Logo_White.png';
+import logo from '../public/vector/Jacob_Leone_Logo_Vectorized.svg';
 import Image from 'next/image';
 import './navbarStyles.css';
 import { motion } from 'framer-motion';
@@ -87,8 +87,16 @@ const contactButtonVariants = {
           </Flex>
       
           {/* Logo */}
-          <Flex  justifyContent="center" flexShrink={0} zIndex={15} position="relative">
-            <Image src={logo} alt="Logo" height={140} width={140} />
+          <Flex justifyContent="center" flexShrink={0} zIndex={15} position="relative">
+              <Image 
+                  src={logo} 
+                  alt="Logo" 
+                  height={140} 
+                  width={140} 
+                  style={{
+                      filter: "drop-shadow(0 0 3px red) drop-shadow(0 0 6px red)"
+                  }}
+              />
           </Flex>
     
           {/* Right Flex: Contact button (only on desktop) */}
