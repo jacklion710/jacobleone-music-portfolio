@@ -18,7 +18,8 @@ import {
     FaChalkboardTeacher,
     FaGamepad,
     FaFilm,
-    FaPodcast
+    FaPodcast,
+    FaPenNib
 } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
@@ -36,14 +37,19 @@ const services = [
       description: "Professional mixing and mastering services to ensure your tracks sound polished and ready for release.",
     },
     {
+      title: "Logo & Typography Design",
+      icon: <FaPenNib />,
+      description: "Crafting unique logos and typography to capture the essence of your brand or project, ensuring a memorable visual identity.",
+    },
+    {
       title: "Session Musician",
       icon: <FaGuitar />,
       description: "Expertise in various instruments, providing the perfect sound for your musical projects or crafting unique soundscapes and audio effects that add depth and character to your productions",
     },
     {
-      title: "Film Scoring",
-      icon: <FaFilm />,
-      description: "Composing original music for movies, documentaries, short films, or animations.",
+        title: "Film Scoring",
+        icon: <FaFilm />,
+        description: "Crafting evocative music scores for movies, documentaries, and animations. My compositions elevate narratives and deepen emotional impact. With a keen sense for cinematic storytelling, I accentuate on-screen drama, tension, and emotion."
     },
     {
       title: "Soundtrack Production for Games",
@@ -54,11 +60,6 @@ const services = [
       title: "Podcast Intros/Outros",
       icon: <FaPodcast />,
       description: "Crafting unique opening and closing music for podcasts, background tracks and other sounds that complement spoken content, be it for commercials, e-learning modules, or audiobooks..",
-    },
-    {
-      title: "Music Editing and Arrangement",
-      icon: <FaMusic />,
-      description: "Adapting and rearranging existing tracks for specific needs, such as shortening a song for an ad spot or changing the arrangement for a performance.",
     },
     {
       title: "Music Workshops and Consultation",
