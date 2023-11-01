@@ -81,8 +81,8 @@ const services = [
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Jacob Leone | Music and Audio Services" />
                 <meta property="og:description" content="Discover the range of professional music and audio services offered by Jacob Leone. Dive deep into specialized services tailored for your audio needs." />
-                <meta property="og:url" content="https://jacobleone.com/services" />
-                <link rel="canonical" href="https://jacobleone.com/services" />
+                <meta property="og:url" content="https://jacobleone.com/Services" />
+                <link rel="canonical" href="https://jacobleone.com/Services" />
                 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
             </Helmet>
             <Flex 
