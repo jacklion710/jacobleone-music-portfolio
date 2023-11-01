@@ -48,7 +48,7 @@ const LandingPage = () => {
             src="/vector/JL_Music_Typography_Vectorized.svg"
             alt="Jacobs Music"
             filter="drop-shadow(0 0 5px red) drop-shadow(0 0 6px red)"
-            boxSize={['225px', '350px', '425px', '450px']}
+            boxSize={['400px', '350px', '300px', '450px']}
             mx="auto"
             color="white"
         />
