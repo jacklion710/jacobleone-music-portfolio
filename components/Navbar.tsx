@@ -105,12 +105,10 @@ const contactButtonVariants = {
             display="flex"
             justifyContent="flex-end"
             alignItems="center"
-            mt={80}
           >
             <motion.div 
               variants={contactButtonVariants}
               transition={{ duration: 0.2 }}
-              style={{ marginTop: '150px' }}
             >
               <NextLink href="/Contact" passHref>
                 <ChakraLink
@@ -123,7 +121,7 @@ const contactButtonVariants = {
                   fontWeight="bold"
                   borderRadius="md"
                   _hover={{ bg: 'red.600' }}
-                  display={{ base: 'none', md: 'block' }}  // Ensures it's visible on desktop and hidden on mobile
+                  display={{ base: 'none', md: 'block' }}  // Ensures it's hidden on mobile and visible on desktop
                 >
                   Contact
                 </ChakraLink>
@@ -285,7 +283,6 @@ const contactButtonVariants = {
                 fontWeight="bold"
                 borderRadius="md"
                 _hover={{ bg: 'red.600' }}
-                style={{ marginTop: '150px' }}
             >
                 Contact
             </ChakraLink>
