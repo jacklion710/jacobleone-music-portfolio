@@ -4,6 +4,7 @@ import {
     Flex,
     Stack,
     Collapse,
+    Icon,
     Link as ChakraLink,
     useDisclosure
   } from '@chakra-ui/react';
@@ -14,6 +15,7 @@ import logo from '../public/vector/Jacob_Leone_Logo_Vectorized.svg';
 import Image from 'next/image';
 import './navbarStyles.css';
 import { motion } from 'framer-motion';
+import { FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa'; 
 
 const MotionBox = chakra(motion.div);
 
@@ -106,6 +108,16 @@ const contactButtonVariants = {
             justifyContent="flex-end"
             alignItems="center"
           >
+            {/* Icons for Desktop and Wide Views */}
+            <Flex 
+              display={{ base: 'none', md: 'flex' }}
+              alignItems="center"
+              marginRight={4}
+            >
+              <Icon as={FaSoundcloud} color="red" style={{ marginRight: '10px' }}  w="1.5em" h="1.5em" className="icon-spacing" />
+              <Icon as={FaInstagram} style={{ marginRight: '10px' }} color="red" w="1.5em" h="1.5em" className="icon-spacing" />
+              <Icon as={FaEnvelope} color="red" w="1.5em" h="1.5em" className="icon-spacing" />
+            </Flex>
             <motion.div 
               variants={contactButtonVariants}
               transition={{ duration: 0.2 }}
@@ -187,6 +199,16 @@ const contactButtonVariants = {
     isOpen: boolean;
   }
 
+  const iconVariants = {
+    hidden: { x: 50, opacity: 0 },
+    visible: { x: 0, opacity: 1 }
+  };
+  
+  const transitionOptions = {
+    duration: 1., 
+    ease: "easeInOut"
+  };
+
   const MobileNav: React.FC<MobileNavProps> = ({ onToggle, isOpen }) => {
     const [navItemStyles, setNavItemStyles] = React.useState({
       opacity: 0,
@@ -261,6 +283,25 @@ const contactButtonVariants = {
               ))}
           </Stack>
       </Flex>
+      {/* Icons for Mobile when Hamburger is Open */}
+      {isOpen && (
+            <Flex
+              flexDirection="row"
+              justifyContent="center"
+              alignItems="center"
+              marginBottom="120px"
+            >          
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+              <FaSoundcloud color="red" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+              <FaInstagram color="red" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+              <FaEnvelope color="red" size="1.5em" className="icon-spacing"/>
+            </motion.div>
+            </Flex>
+          )}
   
         {/* Contact Button */}
         <motion.div 
