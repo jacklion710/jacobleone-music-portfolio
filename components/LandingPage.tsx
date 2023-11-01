@@ -1,5 +1,16 @@
 import React from 'react';
-import { Flex, Heading, Text, VStack, Center, Button, Box, Collapse, useDisclosure } from "@chakra-ui/react";
+import { 
+  Flex, 
+  Heading, 
+  Text, 
+  VStack, 
+  Center, 
+  Button, 
+  Box, 
+  Collapse, 
+  useDisclosure,
+  Image
+} from "@chakra-ui/react";
 import { FaMusic, FaAngleDown, FaAngleUp } from 'react-icons/fa'; 
 import { Helmet } from "react-helmet";
 import Waveform from './Waveform';
@@ -8,7 +19,7 @@ const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
   const reelDisclosure = useDisclosure(); 
   const readMoreDisclosure = useDisclosure();
-
+  const whiteFilter = "invert(100%)"; 
 
   return (
     <Center 
@@ -31,18 +42,16 @@ const LandingPage = () => {
          />
          <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
       </Helmet>
-      <Box bgColor="rgba(0, 0, 0, 0.7)" p={8} borderRadius="md">
-        <VStack spacing={6}>
-        <Heading 
-            fontSize={['5xl', '5xl', '5xl', '7xl']} 
+      <Box bgColor="rgba(0, 0, 0, 0.7)" p={4} borderRadius="md">
+        <VStack spacing={2}>
+        <Image 
+            src="/vector/JL_Music_Typography_Vectorized.svg"
+            alt="Jacobs Music"
+            filter="drop-shadow(0 0 5px red) drop-shadow(0 0 6px red)"
+            boxSize={['225px', '350px', '500px', '450px']}
+            mx="auto"
             color="white"
-            fontFamily="'Space Mono', monospace"
-            fontWeight="800"
-            textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
-            textAlign={"center"}
-        > 
-            JACOBS MUSIC
-        </Heading>
+        />
           <VStack spacing={2}>
             <FaMusic size="1.5em" color="white" />
             <Text fontSize={['lg', 'xl', '2xl']} color="gray.300">Producer & Electronic Artist</Text>
