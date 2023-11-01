@@ -37,8 +37,8 @@ const LandingPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Jacob Leone | Music Producer & Artist" />
         <meta property="og:description" content="Discover the musical world of Jacob Leone. From rock and pop to electronic vibes, feel the rhythm." />
-        <meta property="og:url" content="https://jacobleone-music.vercel.app/" />
-        <link rel="canonical" href="https://jacobleone-music.vercel.app/"
+        <meta property="og:url" content="https://jacobleone.com/" />
+        <link rel="canonical" href="https://jacobleone.com/"
          />
          <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
       </Helmet>

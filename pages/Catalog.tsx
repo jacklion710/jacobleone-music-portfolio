@@ -28,8 +28,15 @@ import { Helmet } from 'react-helmet';
     return (
       <ChakraProvider>
         <Helmet>
-            <title>Jack.Lion - Official Music Page</title>
-            <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+            <title>Jacob Leone | Music Catalog</title>
+            <meta name="description" content="Explore the diverse music catalog of Jacob Leone. Dive deep into a world of eclectic melodies and rhythms." />
+            <meta name="keywords" content="Jacob Leone, Music Catalog, SoundCloud Tracks, Jacob Leone Music" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Jacob Leone | Music Catalog" />
+            <meta property="og:description" content="Explore the diverse music catalog of Jacob Leone. Dive deep into a world of melodies and rhythms." />
+            <meta property="og:url" content="https://jacobleone.com/Catalog" />
+            <link rel="canonical" href="https://jacobleone.com/Catalog" />
+            <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
         </Helmet>
         
         <Flex 

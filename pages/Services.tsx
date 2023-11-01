@@ -75,15 +75,15 @@ const services = [
     return (
         <ChakraProvider>
             <Helmet>
-                <title>Jacob Leones Services | Professional Tech Solutions</title>
-                <meta name="description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
-                <meta name="keywords" content="Jacob Leone, AI, Machine Learning, Software Development, Web Development, Mobile App Creation, Tech Services" />
+                <title>Jacob Leone | Music and Audio Services</title>
+                <meta name="description" content="Discover the range of professional music and audio services offered by Jacob Leone. From music licensing, mixing & mastering to film scoring and more." />
+                <meta name="keywords" content="Jacob Leone, Music Services, Music Licensing, Mixing, Mastering, Film Scoring, Game Soundtracks, Podcast Production" />
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content="Jacob Leone's Services | Professional Tech Solutions" />
-                <meta property="og:description" content="Explore Jacob Leone's professional services, ranging from AI & Machine Learning, Software Development, Web Development, to Mobile App Creation. Get the best tech solutions tailored for your needs." />
-                <meta property="og:url" content="https://jacobleone-tech.vercel.app/Services" />
-                <link rel="canonical" href="https://jacobleone-tech.vercel.app/Services" />
-                <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+                <meta property="og:title" content="Jacob Leone | Music and Audio Services" />
+                <meta property="og:description" content="Discover the range of professional music and audio services offered by Jacob Leone. Dive deep into specialized services tailored for your audio needs." />
+                <meta property="og:url" content="https://jacobleone.com/services" />
+                <link rel="canonical" href="https://jacobleone.com/services" />
+                <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
             </Helmet>
             <Flex 
                 direction="column" 

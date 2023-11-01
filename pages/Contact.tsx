@@ -53,13 +53,16 @@ export default function Contact() {
   return (
     <ChakraProvider>
       <Helmet>
-        <title>Connect with Jacob Leone | Contact</title>
-        <meta name="description" content="Reach out to Jacob Leone on various platforms or send an email." />
-        <meta name="keywords" content="Jacob Leone, Connect, Code, Services, Linkedin, Github, Contact" />
-        <meta property="og:url" content="https://jacobleone-tech.vercel.app/Contact" /> 
-        <link rel="canonical" href="https://jacobleone-tech.vercel.app/Contact" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-        </Helmet>
+          <title>Jacob Leone | Connect & Contact</title>
+          <meta name="description" content="Connect with Jacob Leone. Whether you want to collaborate or just have a chat, find the best ways to reach out here." />
+          <meta name="keywords" content="Jacob Leone, Contact, Connect, Email, Music Collaboration" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Jacob Leone | Connect & Contact" />
+          <meta property="og:description" content="Connect with Jacob Leone. Whether you want to collaborate or just have a chat, find the best ways to reach out here." />
+          <meta property="og:url" content="https://jacobleone.com/Contact" />
+          <link rel="canonical" href="https://jacobleone.com/Contact" />
+          <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+      </Helmet>
         <Flex 
           direction="column"
           minHeight="100vh"
