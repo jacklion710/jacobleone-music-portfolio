@@ -40,19 +40,18 @@ import { Helmet } from 'react-helmet';
         </Helmet>
         
         <Flex 
-            direction="column" 
-            alignItems="flex-start" 
-            flexGrow={1} 
-            minHeight="100vh"          
-            justifyContent="space-between" 
-            bgImage="url('/images/red-note.jpg')" 
+            direction="column"
+            minHeight="100vh"
+            bgImage="url('/images/red-note.jpg')"
             bgPos="center"
             bgSize="cover"
             bgRepeat="no-repeat"
             bgAttachment="fixed"
             color="white"
         >
-            <Navbar/>
+            <Box flexShrink={0}>
+                <Navbar />
+            </Box>
             <VStack spacing={8} align="center" width="100%" mb={8}>
                 <Heading size="xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">My Music</Heading>
                 
