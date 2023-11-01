@@ -36,3 +36,6 @@ next-env.d.ts
 
 # audio edits
 /Live
+
+# local notes & to-dos
+notes.txt
