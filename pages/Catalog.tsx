@@ -55,7 +55,7 @@ import { Helmet } from 'react-helmet';
             <VStack spacing={8} align="center" width="100%" mb={8}>
                 <Heading size="xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">My Music</Heading>
                 
-                <HStack spacing={16} wrap="wrap">
+                <HStack spacing={{ base: 4, md: 16 }} wrap="wrap" justifyContent="center">
                   {soundCloudLinks.map((link, index) => (
                     <Box
                       width={{ base: "100%", md: "300px" }}
