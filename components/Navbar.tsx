@@ -15,19 +15,31 @@ import NextLink from "next/link";
 import logo from '../public/vector/Jacob_Leone_Logo_Vectorized.svg';
 import Image from 'next/image';
 import './navbarStyles.css';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaSoundcloud, FaEnvelope } from 'react-icons/fa'; 
 
 const MotionBox = chakra(motion.div);
 
 const navItemVariants = {
   hidden: { opacity: 0, y: 50 },  
-  visible: { opacity: 1, y: 0 }  
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 50 }
+};
+
+const navItemTransition = {
+  visible: { duration: .1 },
+  exit: { duration: 0.1 }  
 };
 
 const contactButtonVariants = {
   hidden: { y: 100, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
+  exit: { y: 100, opacity: 0 }
+};
+
+const contactButtonTransition = {
+  visible: { duration: .1 },
+  exit: { duration: 0.1 }  
 };
 
   function Navbar() {
@@ -165,9 +177,11 @@ const contactButtonVariants = {
             pointerEvents={isOpen ? 'auto' : 'none'}
         />
       
-        <Collapse in={isOpen}>
-            <MobileNav onToggle={onToggle} isOpen={isOpen} />
-        </Collapse>
+        <AnimatePresence>
+            {isOpen && (
+                <MobileNav onToggle={onToggle} isOpen={isOpen} />
+            )}
+        </AnimatePresence>
       </Box>
     );
   }
@@ -215,7 +229,13 @@ const contactButtonVariants = {
 
   const iconVariants = {
     hidden: { x: 50, opacity: 0 },
-    visible: { x: 0, opacity: 1 }
+    visible: { x: 0, opacity: 1 },
+    exit: { x: 50, opacity: 0 }
+  };
+
+  const iconTransition = {
+    visible: { duration: .1 },
+    exit: { duration: 0.1 }  
   };
   
   const transitionOptions = {
@@ -299,8 +319,9 @@ const contactButtonVariants = {
                   <motion.div 
                       initial="hidden"
                       animate={isOpen ? "visible" : "hidden"}
+                      exit="exit"
                       variants={navItemVariants}
-                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                      transition={navItemTransition}
                   >
                       <ChakraLink
                           fontSize={{ base: "3xl" }}
@@ -320,17 +341,35 @@ const contactButtonVariants = {
       {/* Icons for Mobile when Hamburger is Open */}
       {isOpen && (     
           <Stack direction="row" justifyContent="center" spacing={3} mt={iconMarginTop} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+            >
                 <a href="https://soundcloud.com/jack0lion" target="_blank" rel="noopener noreferrer">
                     <FaSoundcloud color="#E53E3E" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
                 </a>
             </motion.div>
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+            >
                 <a href="https://www.instagram.com/jack.lion/reels/?hl=en" target="_blank" rel="noopener noreferrer">
                     <FaInstagram color="#E53E3E" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
                 </a>
             </motion.div>
-            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+            <motion.div 
+                variants={iconVariants}
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                exit="exit"
+                transition={iconTransition}
+            >                
                 <a href="mailto:jacob0leone@gmail.com" target="_blank" rel="noopener noreferrer">
                     <FaEnvelope color="#E53E3E" size="1.5em" className="icon-spacing"/>
                 </a>
@@ -341,10 +380,11 @@ const contactButtonVariants = {
         {/* Contact Button */}
         <Flex justifyContent="center" width="100%" mt={50}>
           <motion.div 
-            initial="hidden"
-            animate={isOpen ? "visible" : "hidden"}
-            variants={contactButtonVariants}
-            transition={{ duration: 0.4, delay: .4 }}
+              initial="hidden"
+              animate={isOpen ? "visible" : "hidden"}
+              exit="exit"
+              variants={contactButtonVariants}
+              transition={contactButtonTransition}
           >
           <NextLink href="/Contact" passHref>
             <ChakraLink
