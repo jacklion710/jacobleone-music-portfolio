@@ -52,36 +52,41 @@ import { Helmet } from 'react-helmet';
             <Box flexShrink={0}>
                 <Navbar />
             </Box>
-            <VStack spacing={8} align="center" width="100%" mb={8}>
-                <Heading size="xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">My Music</Heading>
-                
-                <HStack spacing={{ base: 4, md: 16 }} wrap="wrap" justifyContent="center">
-                  {soundCloudLinks.map((link, index) => (
-                    <Box
-                      width={{ base: "100%", md: "300px" }}
-                      key={index}
-                      p={5}
-                      borderWidth="1px"
-                      borderRadius="md"
-                      shadow="lg"
-                      transition="transform .2s"
-                      _hover={{ transform: 'scale(1.05)' }}
-                      bgColor="rgba(0, 0, 0, 0.75)"
-                    >
-                      <iframe
-                        width="100%"
-                        height="135%"
-                        scrolling="no"
-                        frameBorder="no"
-                        allow="autoplay"
-                        src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(
-                          link
-                        )}${soundCloudParams}`}
-                      ></iframe>
-                    </Box>
-                  ))}
-                </HStack>
-            </VStack>
+
+            {/* Main Content */}
+            <Box flexGrow={1}>
+                <VStack spacing={8} align="center" width="100%" mb={8}>
+                    <Heading size="xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">My Music</Heading>
+                    
+                    <HStack spacing={{ base: 4, md: 16 }} wrap="wrap" justifyContent="center">
+                      {soundCloudLinks.map((link, index) => (
+                        <Box
+                          width={{ base: "100%", md: "300px" }}
+                          key={index}
+                          p={5}
+                          borderWidth="1px"
+                          borderRadius="md"
+                          shadow="lg"
+                          transition="transform .2s"
+                          _hover={{ transform: 'scale(1.05)' }}
+                          bgColor="rgba(0, 0, 0, 0.75)"
+                        >
+                          <iframe
+                            width="100%"
+                            height="135%"
+                            scrolling="no"
+                            frameBorder="no"
+                            allow="autoplay"
+                            src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(
+                              link
+                            )}${soundCloudParams}`}
+                          ></iframe>
+                        </Box>
+                      ))}
+                    </HStack>
+                </VStack>
+            </Box>
+
             <Footer />
         </Flex>
       </ChakraProvider>
