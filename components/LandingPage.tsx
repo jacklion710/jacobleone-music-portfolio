@@ -24,6 +24,7 @@ const LandingPage = () => {
   return (
     <Center 
       mt="-3vh"
+      height="103vh"
       bg="gray.50" 
       bgImage="url('/images/red-note.jpg')" 
       bgPos="center"
@@ -48,7 +49,7 @@ const LandingPage = () => {
             src="/vector/JL_Music_Typography_Vectorized.svg"
             alt="Jacobs Music"
             filter="drop-shadow(0 0 3px red) drop-shadow(0 0 4px red)"
-            boxSize={['400px', '350px', '300px', '450px']}
+            boxSize={['400px', '350px', '500px', '450px']}
             mx="auto"
             color="white"
         />
