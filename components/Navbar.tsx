@@ -1,4 +1,5 @@
 import {
+    useBreakpointValue,
     chakra,
     Box,
     Flex,
@@ -49,7 +50,7 @@ const contactButtonVariants = {
         <Flex
           bg={'black'}
           color={'white'}
-          h="80px"
+          h="100px"
           minH={'120px'}
           py={{ base: 4 }}
           px={{ base: 4 }}
@@ -57,6 +58,7 @@ const contactButtonVariants = {
           borderColor={'gray.900'}
           align={'center'}
           justifyContent="space-between"
+          zIndex={10}
         >
           {/* Left Flex: Hamburger/Close Icons + Desktop Navigation */}
           <Flex 
@@ -68,7 +70,7 @@ const contactButtonVariants = {
             {/* Hamburger Icon */}
             <Flex
               ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}
+              display={{ base: 'flex', lg: 'none' }}
             >
               <div
                 id="nav-icon1"
@@ -83,8 +85,8 @@ const contactButtonVariants = {
             </Flex>
     
             {/* Desktop Navigation */}
-            <Flex display={{ base: 'none', md: 'flex' }}>
-              <DesktopNav />
+            <Flex display={{ base: 'none', lg: 'flex' }}>
+              <DesktopNav isOpen={isOpen} />
             </Flex>
           </Flex>
       
@@ -169,8 +171,12 @@ const contactButtonVariants = {
       </Box>
     );
   }
+
+  interface DesktopNavProps {
+    isOpen: boolean;
+  }
   
-  const DesktopNav = () => {
+  const DesktopNav: React.FC<DesktopNavProps> = ({ isOpen }) => {
     return (
     <Flex justifyContent="space-between" alignItems="flex-start" flexGrow={1} h="100%">
         <Stack
@@ -222,6 +228,10 @@ const contactButtonVariants = {
       opacity: 0,
       transform: 'translateY(10px)',
     });
+    const isLandscape = useBreakpointValue({ base: 'portrait', sm: 'landscape' }) === 'landscape';
+    const marginTopValue = useBreakpointValue({ base: "100px", sm: "50px" });
+    const iconMarginTop = useBreakpointValue({ base: "200px", sm: "80px" });
+  
   
     React.useEffect(() => {
       if (isOpen) {
@@ -239,97 +249,105 @@ const contactButtonVariants = {
       }
     }, [isOpen]);
 
-    return (
-      <Flex
-        position="fixed"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bg={'black'}
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        pt={4}
-        zIndex={11}
-        transition="opacity 0.5s cubic-bezier(0.5, 0, 0.25, 1)"
-        >
-
+  return (
+    <Flex
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      bottom={0}
+      bg={'black'}
+      flexDirection="column"
+      justifyContent="flex-start"
+      alignItems="center"
+      pt={isLandscape ? 12 : 12} 
+      zIndex={11}
+    >
+      {/* Fixed Content */}
+      <Flex 
+        flexDirection="column" 
+        w="100%" 
+        position={isLandscape ? 'fixed' : 'relative'}
+        zIndex={12}
+        bg="black"
+      >
         {/* Close Button */}
-        <div
-          id="nav-icon1"
-          onClick={onToggle}
-          className={isOpen ? "open" : ""}
-          style={{ marginTop: '30px' }}
+        <Box
+            as="div"
+            id="nav-icon1"
+            onClick={onToggle}
+            className={isOpen ? "open" : ""}
+            mt={isLandscape ? '-15px' : '-15px'}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10} flexGrow={1}> 
-          <Stack spacing={12} textAlign="center" mt={-50}>
-             {NAV_ITEMS.map((navItem, index) => (
-                  <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
-                      <motion.div 
-                          initial="hidden"
-                          animate={isOpen ? "visible" : "hidden"}
-                          variants={navItemVariants}
-                          transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                          >
-                          <ChakraLink
-                              fontSize={{ base: "3xl" }}
-                              fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
-                              color='white'
-                              textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
-                              _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
-                          >
-                              {navItem.label}
-                          </ChakraLink>
-                      </motion.div>
-                  </NextLink>
-              ))}
-          </Stack>
+            <span></span>
+            <span></span>
+            <span></span>
+        </Box>
       </Flex>
+
+      {/* Scrollable Content */}
+      <Box 
+        mt={isLandscape ? '80px' : 0}
+        overflowY={isLandscape ? "auto" : "visible"}
+        h={isLandscape ? 'calc(100vh - 80px)' : 'auto'}
+        w="100%"
+      >
+        <Flex flexDirection="column" alignItems="center" justifyContent="center" mb={10}> 
+          <Stack spacing={50} textAlign="center" mt={marginTopValue}>
+            {NAV_ITEMS.map((navItem, index) => (
+              <NextLink key={navItem.label ?? navItem.imageSrc} href={navItem.href ?? '#'} passHref>
+                  <motion.div 
+                      initial="hidden"
+                      animate={isOpen ? "visible" : "hidden"}
+                      variants={navItemVariants}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                  >
+                      <ChakraLink
+                          fontSize={{ base: "3xl" }}
+                          fontWeight={navItem.imageSrc ? 'normal' : 'bold'}
+                          color='white'
+                          textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red"
+                          _hover={{ textDecoration: 'underline', color: 'gray.300', textShadow: 'none' }}
+                      >
+                          {navItem.label}
+                      </ChakraLink>
+                  </motion.div>
+              </NextLink>
+            ))}
+          </Stack>
+        </Flex>
+
       {/* Icons for Mobile when Hamburger is Open */}
-      {isOpen && (
-            <Flex
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-              marginBottom="120px"
-            >          
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="https://soundcloud.com/jack0lion" target="_blank" rel="noopener noreferrer">
-                      <FaSoundcloud color="#E53E3E" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
-                  </a>
-              </motion.div>
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="https://www.instagram.com/jack.lion/reels/?hl=en" target="_blank" rel="noopener noreferrer">
-                      <FaInstagram color="#E53E3E" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
-                  </a>
-              </motion.div>
-              <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
-                  <a href="mailto:jacob0leone@gmail.com" target="_blank" rel="noopener noreferrer">
-                      <FaEnvelope color="#E53E3E" size="1.5em" className="icon-spacing"/>
-                  </a>
-              </motion.div>
-            </Flex>
-          )}
-  
+      {isOpen && (     
+          <Stack direction="row" justifyContent="center" spacing={3} mt={iconMarginTop} display={{ base: isOpen ? 'flex' : 'none', md: 'flex' }} className="desktop-icons">
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="https://soundcloud.com/jack0lion" target="_blank" rel="noopener noreferrer">
+                    <FaSoundcloud color="#E53E3E" style={{ marginRight: '10px' }} size="1.5em" className="icon-spacing"/>
+                </a>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="https://www.instagram.com/jack.lion/reels/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram color="#E53E3E" size="1.5em" style={{ marginRight: '10px' }} className="icon-spacing"/>
+                </a>
+            </motion.div>
+            <motion.div variants={iconVariants} initial="hidden" animate={isOpen ? 'visible' : 'hidden'} transition={transitionOptions}>
+                <a href="mailto:jacob0leone@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <FaEnvelope color="#E53E3E" size="1.5em" className="icon-spacing"/>
+                </a>
+            </motion.div>
+          </Stack>
+        )}
+
         {/* Contact Button */}
-        <motion.div 
-          initial="hidden"
-          animate={isOpen ? "visible" : "hidden"}
-          variants={contactButtonVariants}
-          transition={{ duration: 0.4, delay: .4 }}
+        <Flex justifyContent="center" width="100%" mt={50}>
+          <motion.div 
+            initial="hidden"
+            animate={isOpen ? "visible" : "hidden"}
+            variants={contactButtonVariants}
+            transition={{ duration: 0.4, delay: .4 }}
           >
           <NextLink href="/Contact" passHref>
             <ChakraLink
-                position="absolute"  // Absolute positioning
-                bottom={6}           // Set the bottom value
-                left="50%"           // Center the button
-                transform="translateX(-50%)"  // Adjust for perfect centering
                 px={6}
                 py={5}
                 bg="red.500"
@@ -343,8 +361,10 @@ const contactButtonVariants = {
             </ChakraLink>
           </NextLink>
         </motion.div>
-      </Flex>
-    );
+        </Flex>
+      </Box>
+    </Flex>
+  );
 };
 
   export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
