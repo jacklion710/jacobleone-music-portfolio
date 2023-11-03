@@ -77,7 +77,7 @@ const services = [
 
     const fadeIn = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1 }
+        visible: { opacity: 1, transition: { duration: 1.22 } }
       };
 
     const [headerRef, headerInView] = useInView({triggerOnce: true, threshold:0.1});
