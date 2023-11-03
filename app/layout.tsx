@@ -23,7 +23,7 @@ export default function RootLayout({
   
   const fadeIn = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1.33 } }
+    visible: { opacity: 1, transition: { duration: .8 } }
   };
 
   return (
