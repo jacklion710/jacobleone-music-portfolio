@@ -140,7 +140,7 @@ const services = [
                             borderBottom: `1px solid currentColor`,  
                         }}
                     >
-                        My Services
+                        Services
                     </Heading>
                 </motion.div>
 
