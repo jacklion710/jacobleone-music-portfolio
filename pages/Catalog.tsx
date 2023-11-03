@@ -9,6 +9,8 @@ import {
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
   export default function Catalog() {
     const soundCloudLinks = [
@@ -24,6 +26,16 @@ import { Helmet } from 'react-helmet';
     ];
     const soundCloudParams = "&color=%23ff0000&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true";
     const isOdd = soundCloudLinks.length % 2 !== 0;
+
+    const [headerRef, headerInView] = useInView({triggerOnce: true, threshold:0.1});
+    const [catalogRef, catalogInView] = useInView({triggerOnce: true, threshold: 0.1});
+    const [navRef, navInView] = useInView({triggerOnce: true, threshold: 0.1});
+    const [footRef, footInView] = useInView({triggerOnce: true, threshold: 0.1});
+
+    const fadeIn = {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: 3 } }
+    };
 
     return (
       <ChakraProvider>
@@ -50,14 +62,33 @@ import { Helmet } from 'react-helmet';
             color="white"
         >
             <Box flexShrink={0}>
-                <Navbar />
+              <motion.div 
+                  ref={navRef} 
+                  initial="hidden" 
+                  animate={navInView ? "visible" : "hidden"} 
+                  variants={fadeIn}
+              >
+                  <Navbar />
+              </motion.div>
             </Box>
 
             {/* Main Content */}
             <Box flexGrow={1}>
                 <VStack spacing={8} align="center" width="100%" mb={8}>
-                    <Heading size="xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">My Music</Heading>
-                    
+                  <motion.div 
+                          ref={headerRef} 
+                          initial="hidden" 
+                          animate={headerInView ? "visible" : "hidden"} 
+                          variants={fadeIn}
+                      >
+                      <Heading size="2xl" borderBottom="1px solid" fontFamily="'Space Mono', monospace" textShadow="0 0 3px red, 0 0 6px red, 0 0 9px red">Music</Heading>
+                  </motion.div>
+                  <motion.div 
+                      ref={catalogRef} 
+                      initial="hidden" 
+                      animate={catalogInView ? "visible" : "hidden"} 
+                      variants={fadeIn}
+                  >
                     <HStack spacing={{ base: 4, md: 16 }} wrap="wrap" justifyContent="center">
                       {soundCloudLinks.map((link, index) => (
                         <Box
@@ -84,10 +115,18 @@ import { Helmet } from 'react-helmet';
                         </Box>
                       ))}
                     </HStack>
+                    </motion.div>
                 </VStack>
             </Box>
 
-            <Footer />
+            <motion.div 
+                ref={footRef} 
+                initial="hidden" 
+                animate={footInView ? "visible" : "hidden"} 
+                variants={fadeIn}
+            >
+                <Footer />
+            </motion.div>
         </Flex>
       </ChakraProvider>
     );
