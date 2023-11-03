@@ -30,7 +30,7 @@ const LandingPage = () => {
   const [iconRef, iconInView] = useInView({triggerOnce: true, threshold: 0.1});
   const [reelRef, reelInView] = useInView({triggerOnce: true, threshold: 0.1});
   const [textRef, textInView] = useInView({triggerOnce: true, threshold: 0.1});
-
+ 
   return (
     <Center 
       minHeight="100vh"
