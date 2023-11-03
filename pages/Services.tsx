@@ -8,7 +8,6 @@ import {
     Link,
     Container,
     ChakraProvider,
-    Divider,
     useColorModeValue
 } from "@chakra-ui/react";
 import { 
@@ -78,7 +77,7 @@ const services = [
     const fadeIn = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { duration: 1.22 } }
-      };
+    };
 
     const [headerRef, headerInView] = useInView({triggerOnce: true, threshold:0.1});
     const [servicesRef, servicesInView] = useInView({triggerOnce: true, threshold: 0.1});
