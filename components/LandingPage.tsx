@@ -39,6 +39,7 @@ const LandingPage = () => {
       bgPos="center"
       bgSize="cover"
       bgRepeat="no-repeat"
+      overflowY="auto"
     >
       <Helmet>
         <title>Jacob Leone | Music Producer & Artist</title>
@@ -66,7 +67,7 @@ const LandingPage = () => {
               filter="drop-shadow(0 0 3px red) drop-shadow(0 0 4px red)"
               boxSize={['300px', '500px', '500px', '500px', '500px']}
               mx="auto"
-              mt={100}
+              mt={['50px', '100px', '100px', '100px', '100px']}
               color="white"
           />
         </motion.div>
