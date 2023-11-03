@@ -83,6 +83,8 @@ const services = [
     const [headerRef, headerInView] = useInView({triggerOnce: true, threshold:0.1});
     const [servicesRef, servicesInView] = useInView({triggerOnce: true, threshold: 0.1});
     const [ctaRef, ctaInView] = useInView({triggerOnce: true, threshold: 0.1});
+    const [navRef, navInView] = useInView({triggerOnce: true, threshold: 0.1});
+    const [footRef, footInView] = useInView({triggerOnce: true, threshold: 0.1});
 
     return (
         <ChakraProvider>
@@ -107,7 +109,12 @@ const services = [
                 bgRepeat="no-repeat"
                 bgAttachment="fixed"
             >
-                <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+                <motion.div 
+                    ref={navRef} 
+                    initial="hidden" 
+                    animate={navInView ? "visible" : "hidden"} 
+                    variants={fadeIn}
+                >
                     <Navbar />
                 </motion.div>
                 
@@ -190,7 +197,14 @@ const services = [
                         </VStack>
                     </motion.div>
                 </Container>
-                <Footer />
+                <motion.div 
+                    ref={footRef} 
+                    initial="hidden" 
+                    animate={footInView ? "visible" : "hidden"} 
+                    variants={fadeIn}
+                >
+                    <Footer />
+                </motion.div>
             </Flex>
         </ChakraProvider>
     );
