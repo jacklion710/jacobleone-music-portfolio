@@ -24,6 +24,8 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet";
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const services = [
     {
@@ -71,8 +73,17 @@ const services = [
   export default function Services() {
     const bgColor = useColorModeValue("white", "gray.900");
     const color = useColorModeValue("white", "gray.100"); 
-    const borderColor = useColorModeValue("gray.200", "gray.700"); 
-    
+    const borderColor = useColorModeValue("gray.200", "gray.700");
+
+    const fadeIn = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 }
+      };
+
+    const [headerRef, headerInView] = useInView({triggerOnce: true, threshold:0.1});
+    const [servicesRef, servicesInView] = useInView({triggerOnce: true, threshold: 0.1});
+    const [ctaRef, ctaInView] = useInView({triggerOnce: true, threshold: 0.1});
+
     return (
         <ChakraProvider>
             <Helmet>
@@ -96,9 +107,17 @@ const services = [
                 bgRepeat="no-repeat"
                 bgAttachment="fixed"
             >
-                <Navbar />
+                <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+                    <Navbar />
+                </motion.div>
                 
                 <Container maxW="container.xl" flexGrow={1}>
+                    <motion.div 
+                        ref={headerRef} 
+                        initial="hidden" 
+                        animate={headerInView ? "visible" : "hidden"} 
+                        variants={fadeIn}
+                    >
                     <Heading 
                         fontFamily="'Space Mono', monospace"
                         fontWeight="700"
@@ -123,7 +142,14 @@ const services = [
                     >
                         My Services
                     </Heading>
-            
+                </motion.div>
+
+                <motion.div 
+                    ref={servicesRef} 
+                    initial="hidden" 
+                    animate={servicesInView ? "visible" : "hidden"} 
+                    variants={fadeIn}
+                >
                     <Flex wrap="wrap" justifyContent="center" gap={4}>
                     {services.map((service, index) => (
                         <Box key={index} w="300px" p={5} borderWidth="1px" borderRadius="md" borderColor={borderColor} shadow="lg" transition="transform .2s" _hover={{ transform: 'scale(1.05)' }} bg="gray.900" opacity="0.9">
@@ -135,29 +161,35 @@ const services = [
                             <Heading as="h2" size="lg" mb={1} textAlign="center" fontFamily="'Space Mono', monospace" fontWeight="700">{service.title}</Heading>
                             <Text mb={4} textAlign="center" fontFamily="'Space Mono', monospace">{service.description}</Text>
                         </Box>
-                    ))}
-                </Flex>
+                        ))}
+                    </Flex>
+                    </motion.div>
+                    
 
-                    <Divider my={10} w="50%" borderColor="white" mx="auto" />
-
-                    <VStack mt={10} mb={10} spacing={4} alignItems="center">
-                        <Text fontSize="lg" textAlign="center" fontWeight="medium" fontFamily="'Space Mono', monospace" >
-                            Have an idea for a project? Reach out anytime!
-                        </Text>
-                        <Flex>
-                            <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2} fontFamily="'Space Mono', monospace" >
-                                Contact
-                            </Button>
-                            <Button colorScheme="red" size="med" as={Link} href="https://jacklion.xyz/Portfolio" padding={2} fontFamily="'Space Mono', monospace" >
-                                Projects
-                            </Button>
-                        </Flex>
-                        <Text fontSize="med" fontFamily="'Space Mono', monospace" >
-                            Email me at <Link href="mailto:jacob@jacobleone.com" color="red.300" fontWeight="bold">jacob@jacobleone.com</Link>
-                        </Text>
-                    </VStack>
+                    <motion.div 
+                        ref={ctaRef} 
+                        initial="hidden" 
+                        animate={ctaInView ? "visible" : "hidden"} 
+                        variants={fadeIn}
+                    >
+                        <VStack mt={10} mb={10} spacing={4} alignItems="center">
+                            <Text fontSize="lg" textAlign="center" fontWeight="medium" fontFamily="'Space Mono', monospace" >
+                                Have an idea for a project? Reach out anytime!
+                            </Text>
+                            <Flex>
+                                <Button colorScheme="orange" size="med" as={Link} href="/Contact" mr={4} padding={2} fontFamily="'Space Mono', monospace" w={"95px"}>
+                                    Contact
+                                </Button>
+                                <Button colorScheme="red" size="med" as={Link} href="https://jacklion.xyz/Portfolio" padding={2} fontFamily="'Space Mono', monospace" >
+                                    Projects
+                                </Button>
+                            </Flex>
+                            <Text fontSize="med" fontFamily="'Space Mono', monospace" >
+                                Email me at <Link href="mailto:jacob@jacobleone.com" color="red.300" fontWeight="bold">jacob@jacobleone.com</Link>
+                            </Text>
+                        </VStack>
+                    </motion.div>
                 </Container>
-
                 <Footer />
             </Flex>
         </ChakraProvider>
