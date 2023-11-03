@@ -129,7 +129,6 @@ import { useState, useRef } from 'react';
 
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [refForm, formView] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [refIcon, iconView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
     return (
       <ChakraProvider>
