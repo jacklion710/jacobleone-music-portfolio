@@ -102,17 +102,17 @@ const contactButtonTransition = {
             </Flex>
           </Flex>
       
-          {/* Logo */}
+          {/* Logo - now clickable */}
           <Flex justifyContent="center" flexShrink={0} zIndex={15} position="relative">
-              <Image 
+            <NextLink href="/" passHref>
+                <Image 
                   src={logo} 
                   alt="Logo" 
                   height={140} 
                   width={140} 
-                  style={{
-                      filter: "drop-shadow(0 0 3px red) drop-shadow(0 0 6px red)"
-                  }}
-              />
+                  style={{ filter: "drop-shadow(0 0 3px red) drop-shadow(0 0 6px red)" }}
+                />
+            </NextLink>
           </Flex>
     
           {/* Right Flex: Contact button (only on desktop) */}
@@ -417,10 +417,6 @@ const contactButtonTransition = {
   }
   
   const NAV_ITEMS: Array<NavItem> = [
-    {
-      label: 'Home',
-      href: '/'
-    },
     {
       label: 'Catalog',
       href: '/Catalog'
