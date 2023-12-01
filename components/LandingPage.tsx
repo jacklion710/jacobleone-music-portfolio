@@ -16,6 +16,7 @@ import { Helmet } from "react-helmet";
 import Waveform from './Waveform';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Head from 'next/head';
 
 const LandingPage = () => {
   const reelDisclosure = useDisclosure(); 
@@ -41,6 +42,10 @@ const LandingPage = () => {
       bgRepeat="no-repeat"
       overflowY="auto"
     >
+      <Head>
+        <title>Jacob Leone | Music Producer & Artist</title>
+        <meta name="description" content="Discover the musical world of Jacob Leone. From rock and pop to electronic vibes, feel the rhythm." />
+      </Head>
       <Helmet>
         <title>Jacob Leone | Music Producer & Artist</title>
         <meta name="description" content="Discover the musical world of Jacob Leone. From rock and pop to electronic vibes, feel the rhythm." />
